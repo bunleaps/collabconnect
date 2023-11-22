@@ -1,20 +1,17 @@
-///////////////////////////////
-// Import Router
-////////////////////////////////
-const router = require("express").Router()
+const router = require("express").Router();
+const AuthRouter = require("./auth");
+const auth = require("./authMiddleware");
 
-///////////////////////////////
-// Router Specific Middleware
-////////////////////////////////
+router.use("/auth", AuthRouter);
 
-///////////////////////////////
-// Router Routes
-////////////////////////////////
 router.get("/", (req, res) => {
-    res.render("home")
-})
+  res.render("home");
+});
 
-///////////////////////////////
-// Export Router
-////////////////////////////////
-module.exports = router
+router.use(auth);
+
+router.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+module.exports = router;
