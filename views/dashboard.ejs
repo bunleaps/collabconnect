@@ -12,7 +12,9 @@
         Welcome to the Dashboard, <%= user.username %>!
         <a href="/auth/logout"><button>Logout</button></a>
       </h1>
-      <a href="/search"><button>Search Startups</button></a>
+      <br />
+      <a href="/search"><button>Search Startups</button></a> <br />
+      <br />
       <h3>Your Startup Information:</h3>
       <ul>
         <li><strong>Name:</strong> <%= startup.name || "NaN" %></li>
@@ -28,6 +30,25 @@
 
       <!-- Link to the edit page -->
       <a href="/startup/edit">Edit Startup</a>
+
+      <br />
+      <br />
+
+      <h3>Other Startups with Similar Categories:</h3>
+      <ul>
+        <% similarStartups.forEach(similarStartup => { %>
+        <li>
+          <strong>Name:</strong> <%= similarStartup.info.name || "NaN" %>,
+          <strong>Founder:</strong> <%= similarStartup.info.founder || "NaN" %>,
+          <strong>Website:</strong> <%= similarStartup.info.website || "NaN" %>,
+          <strong>Address:</strong> <%= similarStartup.info.address || "NaN" %>,
+          <strong>Image:</strong> <%= similarStartup.info.image || "NaN" %>,
+          <strong>Categories:</strong> <%= (similarStartup.info.categories &&
+          Array.isArray(similarStartup.info.categories)) ?
+          similarStartup.info.categories.join(', ') : "NaN" %>
+        </li>
+        <% }); %>
+      </ul>
     </main>
     <!-- THE FOOTER TAG PARTIAL -->
     <%- include("partials/footer") %>

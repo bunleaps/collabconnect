@@ -18,10 +18,24 @@ router.use(async (req, res, next) => {
   next();
 });
 
-router.get("/dashboard", (req, res) => {
-  const user = req.user;
-  const startup = user.info;
-  res.render("dashboard", { user, startup });
+router.get("/dashboard", async (req, res) => {
+  try {
+    const user = req.user;
+    const startup = user.info;
+
+    // Fetch startups with similar categories from other users
+    const similarStartups = await User.find({
+      "info.categories": { $in: startup.categories },
+      _id: { $ne: user._id }, // Exclude the user's own startup
+    }).limit(5); // Limit the number of displayed similar startups
+
+    console.log("Similar Startups:", similarStartups);
+
+    res.render("dashboard", { user, startup, similarStartups });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 router.get("/search", async (req, res) => {
