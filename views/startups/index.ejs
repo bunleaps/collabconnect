@@ -14,6 +14,7 @@
       <h3>Website: <%= startup.website || "NaN"%></h3>
       <h3>Address: <%= startup.address || "NaN"%></h3>
       <h3>Image: <%= startup.image || "NaN"%></h3>
+      <h3>Category: <%= startup.categories.join(', ') || "NaN" %></h3>
 
       <a href="/startup/edit">Edit Startup</a>
     </main>

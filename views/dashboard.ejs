@@ -12,7 +12,7 @@
         Welcome to the Dashboard, <%= user.username %>!
         <a href="/auth/logout"><button>Logout</button></a>
       </h1>
-
+      <a href="/search"><button>Search Startups</button></a>
       <h3>Your Startup Information:</h3>
       <ul>
         <li><strong>Name:</strong> <%= startup.name || "NaN" %></li>
@@ -20,6 +20,10 @@
         <li><strong>Website:</strong> <%= startup.website || "NaN" %></li>
         <li><strong>Address:</strong> <%= startup.address || "NaN" %></li>
         <li><strong>Image:</strong> <%= startup.image || "NaN" %></li>
+        <li>
+          <strong>Categories:</strong> <%= startup.categories.join(', ') ||
+          "NaN" %>
+        </li>
       </ul>
 
       <!-- Link to the edit page -->

@@ -6,6 +6,7 @@ const StartUp = new Schema({
   address: String,
   website: String,
   image: String,
+  categories: [{ type: String }],
 });
 
 const UserSchema = new Schema(
@@ -20,6 +21,7 @@ const UserSchema = new Schema(
         address: "",
         website: "",
         image: "",
+        categories: [],
       },
     },
   },

@@ -1,0 +1,59 @@
+<!-- search.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/head") %>
+
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("partials/header") %>
+    <main>
+      <h1>Search Startups</h1>
+
+      <!-- Add a search input form -->
+      <form action="/search" method="get">
+        <label for="name">Search by Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter startup name"
+          value="<%= searchQuery %>"
+        />
+        <label for="category">Filter by Category:</label>
+        <input
+          type="text"
+          id="category"
+          name="category"
+          placeholder="Enter category"
+          value="<%= categoryQuery %>"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <ul>
+        <% startups.forEach(startup => { %>
+        <!-- Log startup name and search query for debugging -->
+        <% console.log("Startup Name:", startup.info.name); %> <%
+        console.log("Search Query:", searchQuery); %>
+
+        <!-- Check if the startup matches the search criteria -->
+        <% if (startup.info && (searchQuery ?
+        startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
+        true)) { %>
+        <li>
+          <strong>Name:</strong> <%= startup.info.name || "NaN" %>,
+          <strong>Founder:</strong> <%= startup.info.founder || "NaN" %>,
+          <strong>Categories:</strong>
+          <% if (startup.info.categories && startup.info.categories.length > 0)
+          { %> <%= startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
+          } %>
+        </li>
+        <% } %> <% }); %>
+      </ul>
+    </main>
+
+    <!-- THE FOOTER TAG PARTIAL -->
+    <%- include("partials/footer") %>
+  </body>
+</html>

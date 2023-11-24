@@ -48,6 +48,13 @@
           placeholder="image"
           value="<%= startup.image %>"
         />
+        <input
+          class="input"
+          type="text"
+          name="categories"
+          placeholder="Categories"
+          value="<%= startup.categories.join(', ') %>"
+        />
         <input class="button" type="submit" value="Update Startup" />
       </form>
     </main>

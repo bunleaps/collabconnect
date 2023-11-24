@@ -26,7 +26,25 @@ router.get("/edit", async (req, res) => {
 // Handle updating an existing startup
 router.post("/edit", async (req, res) => {
   const user = req.user;
-  user.info = req.body;
+  const startup = user.info; // Assuming 'info' contains the startup information
+
+  // Assuming 'req.body' contains the updated fields, including 'categories'
+  const { name, founder, website, address, image, categories } = req.body;
+
+  // Split categories string into an array
+  const categoriesArray = categories
+    .split(",")
+    .map((category) => category.trim());
+
+  // Update the startup information
+  startup.name = name;
+  startup.founder = founder;
+  startup.website = website;
+  startup.address = address;
+  startup.image = image;
+  startup.categories = categoriesArray;
+
+  // Save the user with the updated startup information
   await user.save();
   res.redirect("/dashboard");
 });
