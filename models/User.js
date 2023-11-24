@@ -2,16 +2,26 @@ const { model, Schema } = require("../db/connection");
 
 const StartUp = new Schema({
   name: String,
-  founders: [String],
+  founder: String,
   address: String,
   website: String,
+  image: String,
 });
 
 const UserSchema = new Schema(
   {
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    info: StartUp,
+    info: {
+      type: StartUp,
+      default: {
+        name: "",
+        founder: "",
+        address: "",
+        website: "",
+        image: "",
+      },
+    },
   },
   { timestamps: true }
 );

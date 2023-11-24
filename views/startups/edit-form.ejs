@@ -1,0 +1,57 @@
+<!-- edit-form.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("../partials/head") %>
+
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("../partials/header") %>
+    <main>
+      <a href="/dashboard">DASHBOARD</a> <br />
+
+      <h3>Edit Startup</h3>
+
+      <form action="/startup/edit" method="post">
+        <input
+          class="input"
+          type="text"
+          name="name"
+          placeholder="name"
+          value="<%= startup.name %>"
+        />
+        <input
+          class="input"
+          type="text"
+          name="founder"
+          placeholder="founder"
+          value="<%= startup.founder %>"
+        />
+        <input
+          class="input"
+          type="text"
+          name="website"
+          placeholder="website"
+          value="<%= startup.website %>"
+        />
+        <input
+          class="input"
+          type="text"
+          name="address"
+          placeholder="address"
+          value="<%= startup.address %>"
+        />
+        <input
+          class="input"
+          type="text"
+          name="image"
+          placeholder="image"
+          value="<%= startup.image %>"
+        />
+        <input class="button" type="submit" value="Update Startup" />
+      </form>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+  </body>
+</html>

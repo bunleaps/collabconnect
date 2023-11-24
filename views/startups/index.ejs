@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("../partials/head") %>
+
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("../partials/header") %>
+    <main>
+      <a href="/dashboard">DASHBOARD</a> <br />
+
+      <h3>Name: <%= startup.name || "NaN"%></h3>
+      <h3>Founder: <%= startup.founder || "NaN"%></h3>
+      <h3>Website: <%= startup.website || "NaN"%></h3>
+      <h3>Address: <%= startup.address || "NaN"%></h3>
+      <h3>Image: <%= startup.image || "NaN"%></h3>
+
+      <a href="/startup/edit">Edit Startup</a>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("../partials/footer") %>
+  </body>
+</html>

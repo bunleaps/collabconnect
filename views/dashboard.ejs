@@ -1,3 +1,4 @@
+<!-- dashboard.ejs -->
 <!DOCTYPE html>
 <html lang="en">
   <!-- THE HEAD TAG PARTIAL -->
@@ -6,9 +7,25 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main>Dashboard</main>
-    <a href="/auth/logout"><button>Logout</button></a>
-    <!-- THE HEAD TAG PARTIAL -->
+    <main>
+      <h1>
+        Welcome to the Dashboard, <%= user.username %>!
+        <a href="/auth/logout"><button>Logout</button></a>
+      </h1>
+
+      <h3>Your Startup Information:</h3>
+      <ul>
+        <li><strong>Name:</strong> <%= startup.name || "NaN" %></li>
+        <li><strong>Founder:</strong> <%= startup.founder || "NaN" %></li>
+        <li><strong>Website:</strong> <%= startup.website || "NaN" %></li>
+        <li><strong>Address:</strong> <%= startup.address || "NaN" %></li>
+        <li><strong>Image:</strong> <%= startup.image || "NaN" %></li>
+      </ul>
+
+      <!-- Link to the edit page -->
+      <a href="/startup/edit">Edit Startup</a>
+    </main>
+    <!-- THE FOOTER TAG PARTIAL -->
     <%- include("partials/footer") %>
   </body>
 </html>
