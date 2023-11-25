@@ -2,130 +2,152 @@
 <html lang="en">
   <!-- THE HEAD TAG PARTIAL -->
   <%- include("partials/head") %>
-  <style>
-    .jumbotron{
-      display: flex;
-    }
-    .jumbo-text, .jumbo-img{
-      width: 50%;
-      padding: 20px;
-      /* border: 2px solid red; */
-    }
-    .partners{
-      text-align: center;
-      background-color: rgb(67, 216, 167);
-      color: white;
-      padding: 10px 20px;
-    }
-    .partners-text{
-      width: 70%;
-      margin: auto;
-    }
-    .row{
-      display: flex;
-      flex-direction: row;
-    }
-    .col{
-      width: 31%;
-      height: 100px;
-      border-radius: 10px;
-      
-      color: black;
-      box-shadow: 0px 5px 5px rgb(32, 106, 81);
-      text-align: center;
-      background-color: white;
-
-      padding: 20px;
-      margin: 10px auto;
-    }
-
-    .stories{
-      background-color: rgb(234, 234, 234);
-      padding: 20px 0;
-    }
-
-    .stories-nasa, .stories-microsoft{
-      display: flex;
-      flex-direction: row;
-      margin: 20px auto;
-      width: 95%;
-    }
-
-    .stories-head{
-      text-align: center;
-    }
-
-    .story-text, .story-img{
-      width: 50%;
-    }
-  </style>
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main>
-      <section class="jumbotron">
-        <div class="jumbo-text">
-          <h1>COLLABORATIVE<br>SOLUTIONS FOR START-UP</h1>
-          <p>Unlock the full potential of your start-up through our collaborative solutions, where innovative minds converge with expert insights to navigate challenges and propel your entrepreneurial journey to unprecedented heights</p>
-          <button onclick="location.href='auth/login.ejs'">Get Started</button>
-        </div>
-        <div class="jumbo-img">
-          image here lmao
-        </div>
-      </section>
-      <section class="partners">
-        <div class="partners-text">
-          <h1>Featured Partners</h1>
-          <p>Explore excellence with our standout partners, leaders in innovation and collaboration. Together, we redefine industry standards, driven by shared vision and unwavering commitment. join us in celebrating the power of collaboration for boundless possibilities</p>
-        </div>
-        <div class="row">
-          <div class="col">
-            AWS
+    <main class="pt-6">
+      <div class="container mb-6">
+        <div class="columns">
+          <div
+            class="column py-6 is-flex is-flex-direction-column is-justify-content-center"
+          >
+            <div>
+              <h1 class="title">COLLABORATIVE<br />SOLUTIONS FOR START-UP</h1>
+              <p class="subtitle">
+                Unlock the full potential of your start-up through our
+                collaborative solutions, where innovative minds converge with
+                expert insights to navigate challenges and propel your
+                entrepreneurial journey to unprecedented heights
+              </p>
+              <a class="button is-primary" href="auth/login">Get Started</a>
+            </div>
           </div>
-          <div class="col">
-            NASA
-          </div>
-          <div class="col">
-            Microsoft
+          <div class="column">
+            <img
+              style="border-radius: 10px"
+              src="/images/jumbo.jpeg"
+              alt="Jumbo"
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            Google
+      </div>
+
+      <div class="has-background-primary">
+        <div class="container py-6">
+          <div class="has-text-centered">
+            <h1 class="title has-text-white-bis">Featured Partners</h1>
+            <p class="subtitle has-text-white-bis">
+              Explore excellence with our standout partners, leaders in
+              innovation and collaboration. Together, we redefine industry
+              standards, driven by shared vision and unwavering commitment. join
+              us in celebrating the power of collaboration for boundless
+              possibilities
+            </p>
           </div>
-          <div class="col">
-            Kickstarter
+          <div class="columns mt-2">
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/aws.png" alt="NASA" />
+              </div>
+            </div>
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/nasa.png" alt="NASA" />
+              </div>
+            </div>
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/ms.png" alt="Microsoft" />
+              </div>
+            </div>
           </div>
-          <div class="col">
-            Twitch
+          <div class="columns mt-2">
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/google.png" alt="Google" />
+              </div>
+            </div>
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/ks.png" alt="Kickstarter" />
+              </div>
+            </div>
+            <div class="column is-flex">
+              <div
+                class="box is-flex is-align-items-center is-justify-content-center"
+                style="width: 100%"
+              >
+                <img src="/images/twitch.png" alt="twitch" />
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <section class="stories">
-        <div class="stories-head">
-          <h1>Featured Stories</h1>
-          <p>Bruh bruh bruh</p>
+      </div>
+
+      <div class="has-background-light">
+        <div class="container py-6">
+          <div class="has-text-centered">
+            <h1 class="title">Featured Partners</h1>
+            <p class="subtitle">
+              Explore excellence with our standout partners, leaders in
+              innovation and collaboration. Together, we redefine industry
+              standards, driven by shared vision and unwavering commitment. join
+              us in celebrating the power of collaboration for boundless
+              possibilities
+            </p>
+          </div>
+          <div class="columns mt-3">
+            <div class="column">
+              <img src="/images/nasa-img.png" alt="NASA Exploration" />
+            </div>
+            <div class="column">
+              <h1 class="title is-4">
+                COLLABORATION WITH<br />NASA SPACE EXPLORATION
+              </h1>
+              <p class="subtitle">
+                The startup, StellarTech Innovations, achieved cosmic success by
+                collaborating with NASA on a groundbreaking space exploration
+                mission. Together, they redefined the limits of innovation,
+                setting a historic milestone in collaborative excellence and
+                propelling their startup to new heights in the space-age
+                frontier.
+              </p>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <h1 class="title is-4">COLLABORATION WITH<br />MICROSOFT</h1>
+              <p class="subtitle">
+                Teaming up with Microsoft, the startup, SmartFlush Innovations,
+                transformed the mundane toilet into a tech marvel. The result? A
+                sleek, efficient smart toilet that redefines bathroom
+                experiences, showcasing the power of innovation and
+                collaboration in unexpected places.
+              </p>
+            </div>
+            <div class="column">
+              <img src="/images/ms-toilet.png" alt="MS Toilet" />
+            </div>
+          </div>
         </div>
-        <div class="stories-nasa">
-          <div class="story-img">
-            image here
-          </div>
-          <div class="story-text">
-            <h1>COLLABORATION WITH<br>NASA SPACE EXPLORATION</h1>
-            <p>Insert text here</p>
-          </div>
-        </div>
-        <div class="stories-microsoft">
-          <div class="story-text">
-            <h1>COLLABORATION WITH<br>MICROSOFT</h1>
-            <p>insert text here</p>
-          </div>
-          <div class="story-img">
-            image here
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
+
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>
   </body>

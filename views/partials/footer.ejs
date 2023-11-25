@@ -1,27 +1,45 @@
-<footer>
-    <div class="footer-con">
-        logo here
-        <img src="" alt="">
-        <br>
-        <div class="newsletter">
-            <label for="email">Subscribe to Newsletter</label><br>
-            <input type="email" name="email" placeholder="Email Address">
-            <button>Subscribe</button>
-        </div>
+<footer class="container mt-5 mb-6">
+  <div class="is-flex is-align-items-center">
+    <i class="bi bi-plugin mr-2"></i>
+    <h3 class="py-3">Collab <br /><b>Connect</b></h3>
+  </div>
+  <div class="is-flex is-justify-content-space-between">
+    <div class="newsletter pt-4">
+      <label for="email">Subscribe to Newsletter</label><br />
+      <div class="is-flex">
+        <input class="input" type="email" placeholder="Email Address" />
+        <button class="ml-3 button is-primary">Subscribe</button>
+      </div>
     </div>
+
     <div class="footer-con">
-        <p><b>USEFUL LINKS</b></p>
-        <div style="width:75%; display:flex; font-size: 18px;">
-            <div class="link-col">
-                <a href="">FEATURES</a><br>
-                <a href="">ABOUT</a><br>
-                <a href="">CONTACT US</a><br>
-            </div>
-            <div class="link-col">
-                <a href="">TERMS & SERVICES</a><br>
-                <a href="">LEGAL</a><br>
-                <a href="">SITEMAP</a><br>
-            </div>
+      <p><b>USEFUL LINKS</b></p>
+      <div class="columns">
+        <div class="column">
+          <a href="">FEATURES</a><br />
+          <a href="">ABOUT</a><br />
+          <a href="">CONTACT US</a><br />
         </div>
+        <div class="column">
+          <a href="">TERMS & SERVICES</a><br />
+          <a href="">LEGAL</a><br />
+          <a href="">SITEMAP</a><br />
+        </div>
+      </div>
     </div>
+  </div>
 </footer>
+
+<style>
+  footer > div > i {
+    font-size: 20px;
+    padding: 5px 9px;
+    border-radius: 10px;
+    color: white;
+    background: #1abc9c;
+  }
+
+  footer > div > h3 {
+    line-height: 16px;
+  }
+</style>

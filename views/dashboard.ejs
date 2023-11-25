@@ -6,14 +6,9 @@
 
   <body>
     <!-- THE HEADER TAG PARTIAL -->
-    <%- include("partials/header") %>
-    <main>
-      <h1>
-        Welcome to the Dashboard, <%= user.username %>!
-        <a href="/auth/logout"><button>Logout</button></a>
-      </h1>
-      <br />
-      <a href="/search"><button>Search Startups</button></a> <br />
+    <%- include("partials/header-auth") %>
+    <main class="container">
+      <h1>Welcome to the Dashboard, <%= user.username %>!</h1>
       <br />
       <h3>Your Startup Information:</h3>
       <ul>
@@ -29,26 +24,38 @@
       </ul>
 
       <!-- Link to the edit page -->
-      <a href="/startup/edit">Edit Startup</a>
+      <a class="mt-5 button" href="/startup/edit">Edit Startup</a>
 
       <br />
       <br />
 
-      <h3>Other Startups with Similar Categories:</h3>
-      <ul>
-        <% similarStartups.forEach(similarStartup => { %>
-        <li>
-          <strong>Name:</strong> <%= similarStartup.info.name || "NaN" %>,
-          <strong>Founder:</strong> <%= similarStartup.info.founder || "NaN" %>,
-          <strong>Website:</strong> <%= similarStartup.info.website || "NaN" %>,
-          <strong>Address:</strong> <%= similarStartup.info.address || "NaN" %>,
-          <strong>Image:</strong> <%= similarStartup.info.image || "NaN" %>,
-          <strong>Categories:</strong> <%= (similarStartup.info.categories &&
-          Array.isArray(similarStartup.info.categories)) ?
-          similarStartup.info.categories.join(', ') : "NaN" %>
-        </li>
-        <% }); %>
-      </ul>
+      <h3 class="title is-5">Potential Partners</h3>
+      <div class="columns"></div>
+      <% similarStartups.forEach(similarStartup => { %>
+      <div class="column">
+        <div class="box is-flex">
+          <figure class="image is-128x128 mr-4">
+            <img
+              class="is-rounded"
+              src="https://bulma.io/images/placeholders/128x128.png"
+              alt=""
+            />
+          </figure>
+          <div class="is-flex is-flex-direction-column pt-2">
+            <h3 class="title is-5"><%= similarStartup.info.name || "NaN" %></h3>
+            <p class="subtitle is-6">
+              <%= similarStartup.info.founder || "NaN" %>
+            </p>
+            <p><%= similarStartup.info.website || "NaN" %></p>
+            <p>
+              <strong>Tags:</strong> <%= (similarStartup.info.categories &&
+              Array.isArray(similarStartup.info.categories)) ?
+              similarStartup.info.categories.join(', ') : "NaN" %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <% }); %>
     </main>
     <!-- THE FOOTER TAG PARTIAL -->
     <%- include("partials/footer") %>

@@ -6,14 +6,15 @@
 
   <body>
     <!-- THE HEADER TAG PARTIAL -->
-    <%- include("partials/header") %>
-    <main>
-      <h1>Search Startups</h1>
+    <%- include("partials/header-auth") %>
+    <main class="container">
+      <h1 class="title has-text-centered">Search Startups</h1>
 
       <!-- Add a search input form -->
-      <form action="/search" method="get">
+      <form action="/search" method="get" class="mb-5">
         <label for="name">Search by Name:</label>
         <input
+          class="input mb-2"
           type="text"
           id="name"
           name="name"
@@ -22,13 +23,14 @@
         />
         <label for="category">Filter by Category:</label>
         <input
+          class="input"
           type="text"
           id="category"
           name="category"
           placeholder="Enter category"
           value="<%= categoryQuery %>"
         />
-        <button type="submit">Search</button>
+        <button class="button is-primary mt-2" type="submit">Search</button>
       </form>
 
       <ul>
