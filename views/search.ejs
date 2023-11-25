@@ -44,13 +44,52 @@
         startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
         true)) { %>
         <li>
+          <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <div class="is-flex is-flex-direction-row my-4">
+              <figure class="image is-128x128 mr-4">
+                <!-- Missing URL Checker -->
+                <img
+                  class="is-rounded"
+                  src="<%= startup.info.image || 'https://bulma.io/images/placeholders/128x128.png' %>"
+                  alt=""
+                />
+              </figure>
+              <div class="is-flex is-flex-direction-column is-justify-content-space-between py-4">
+                <div class="is-flex is-flex-direction-column">
+                  <h1 class="title is-4"><%= startup.info.name || "NaN" %></h1>
+                  <h3 class="subtitle is-6"><%= startup.info.website || "NaN" %></h3>
+                </div>
+                <div class="is-flex is-flex-direction-column">
+                  <% if (startup.info.categories && startup.info.categories.length > 0)
+                  { %> <%= startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
+                  } %>
+                </div>
+              </div>
+            </div>
+            <div class="is-flex is-flex-direction-row">
+              <div class="is-flex is-flex-direction-row is-align-items-center">
+                <div class="has-background-grey-light is-flex is-align-items-center is-justify-content-center mx-2" style="width: 40px; height: 40px; border-radius: 50%;">
+                  <i class="bi bi-link-45deg" style="font-size: 22px;"></i>
+                </div>
+                <div class="has-background-grey-light is-flex is-align-items-center is-justify-content-center mx-2" style="width: 40px; height: 40px; border-radius: 50%;">
+                  <i class="bi bi-send" style="font-size: 18px;"></i>
+                </div>
+                <div class="has-background-grey-light is-flex is-align-items-center is-justify-content-center mx-2" style="width: 40px; height: 40px; border-radius: 50%;">
+                  <i class="bi bi-bookmark" style="font-size: 18px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- <li>
           <strong>Name:</strong> <%= startup.info.name || "NaN" %>,
           <strong>Founder:</strong> <%= startup.info.founder || "NaN" %>,
           <strong>Categories:</strong>
           <% if (startup.info.categories && startup.info.categories.length > 0)
           { %> <%= startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
           } %>
-        </li>
+        </li> -->
         <% } %> <% }); %>
       </ul>
     </main>
