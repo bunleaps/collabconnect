@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 
 app.use(cors()); // Prevent Cors Errors if building an API
 app.use(methodOverride("_method")); // Swap method of requests with _method query
-app.use(express.static(path.join(__dirname + "../public"))); // serve the public folder as static
+app.use(express.static(path.join(__dirname + "/public"))); // serve the public folder as static
 app.use(morgan("tiny")); // Request Logging
 app.use(express.json()); // Parse json bodies
 app.use(express.urlencoded({ extended: false })); //parse bodies from form submissions
