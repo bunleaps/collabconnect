@@ -3,8 +3,8 @@ const express = require("express");
 const mongoose = require("./db/connection");
 const { log } = require("mercedlogger");
 const path = require("path");
-const livereload = require("livereload");
-const connectLivereload = require("connect-livereload");
+// const livereload = require("livereload");
+// const connectLivereload = require("connect-livereload");
 
 const methodOverride = require("method-override");
 const morgan = require("morgan");
@@ -20,15 +20,15 @@ const connect = require("connect-mongodb-session")(session); // store cookies in
 const app = express();
 app.set("view engine", "ejs");
 
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, "public"));
-app.use(connectLivereload());
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(path.join(__dirname, "public"));
+// app.use(connectLivereload());
 
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+// liveReloadServer.server.once("connection", () => {
+//   setTimeout(() => {
+//     liveReloadServer.refresh("/");
+//   }, 100);
+// });
 
 app.use(cors()); // Prevent Cors Errors if building an API
 app.use(methodOverride("_method")); // Swap method of requests with _method query

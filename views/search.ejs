@@ -43,14 +43,28 @@
         <% if (startup.info && (searchQuery ?
         startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
         true)) { %>
-        <li>
-          <strong>Name:</strong> <%= startup.info.name || "NaN" %>,
-          <strong>Founder:</strong> <%= startup.info.founder || "NaN" %>,
-          <strong>Categories:</strong>
-          <% if (startup.info.categories && startup.info.categories.length > 0)
-          { %> <%= startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
-          } %>
-        </li>
+        <div class="column">
+          <div class="box is-flex">
+            <figure class="image is-128x128 mr-4">
+              <img class="is-rounded" src="<%= startup.info.image ||
+              "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
+            </figure>
+            <div class="is-flex is-flex-direction-column pt-2">
+              <h3 class="title is-5"><%= startup.info.name || "NaN" %></h3>
+              <p class="subtitle is-6"><%= startup.info.founder || "NaN" %></p>
+              <p>
+                <i class="bi bi-link-45deg"></i> <%= startup.info.website ||
+                "NaN" %>
+              </p>
+              <p>
+                <strong>Tags:</strong> <% if (startup.info.categories &&
+                startup.info.categories.length > 0) { %> <%=
+                startup.info.categories.join(', ') %> <% } else { %> "NaN" <% }
+                %>
+              </p>
+            </div>
+          </div>
+        </div>
         <% } %> <% }); %>
       </ul>
     </main>

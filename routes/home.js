@@ -11,6 +11,18 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
+router.get("/features", (req, res) => {
+  res.render("features");
+});
+
+router.get("/about", (req, res) => {
+  res.render("about");
+});
+
+router.get("/contact-us", (req, res) => {
+  res.render("contact-us");
+});
+
 router.use(auth);
 router.use(async (req, res, next) => {
   req.user = await User.findById(req.session.user.id);

@@ -7,10 +7,11 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("../partials/header-auth") %>
-    <main>
-      <h3>Edit Startup</h3>
+    <main class="container my-6">
+      <h3 class="title is-5 has-text-centered">Edit Startup</h3>
 
       <form action="/startup/edit" method="post">
+        <label class="label mt-3">Name</label>
         <input
           class="input"
           type="text"
@@ -18,6 +19,7 @@
           placeholder="name"
           value="<%= startup.name %>"
         />
+        <label class="label mt-3">Founder</label>
         <input
           class="input"
           type="text"
@@ -25,6 +27,7 @@
           placeholder="founder"
           value="<%= startup.founder %>"
         />
+        <label class="label mt-3">Website Link</label>
         <input
           class="input"
           type="text"
@@ -32,6 +35,7 @@
           placeholder="website"
           value="<%= startup.website %>"
         />
+        <label class="label mt-3">Address</label>
         <input
           class="input"
           type="text"
@@ -39,6 +43,7 @@
           placeholder="address"
           value="<%= startup.address %>"
         />
+        <label class="label mt-3">Image Link</label>
         <input
           class="input"
           type="text"
@@ -46,6 +51,7 @@
           placeholder="image"
           value="<%= startup.image %>"
         />
+        <label class="label mt-3">Tags (Separate by comma ",")</label>
         <input
           class="input"
           type="text"
@@ -53,7 +59,11 @@
           placeholder="Categories"
           value="<%= startup.categories.join(', ') %>"
         />
-        <input class="button" type="submit" value="Update Startup" />
+        <input
+          class="button is-primary mt-3"
+          type="submit"
+          value="Update Startup"
+        />
       </form>
     </main>
     <!-- THE HEAD TAG PARTIAL -->
