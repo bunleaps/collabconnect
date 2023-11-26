@@ -18,6 +18,7 @@ const session = require("express-session"); // create session cookies
 const connect = require("connect-mongodb-session")(session); // store cookies in mongo
 
 const app = express();
+app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
 // const liveReloadServer = livereload.createServer();
