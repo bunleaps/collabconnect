@@ -7,7 +7,7 @@ CollabConnect is an online platform that facilitates startup collaboration by of
 ## Sitemap
 
 ### Logged Out Users:
-- **Home:** Overview of CollabConnect and featured startups.
+- **Home:** Overview of CollabConnect and featured partners.
 - **Features:** Explore the key features of CollabConnect.
 - **About Us:** Learn more about the CollabConnect team.
 - **Contact Us:** Reach out to us for any inquiries.
@@ -15,7 +15,7 @@ CollabConnect is an online platform that facilitates startup collaboration by of
 - **Sign Up:** Create a new CollabConnect account.
 
 ### Logged In Users:
-- **Home:** Overview of CollabConnect and featured startups.
+- **Home:** Home: Explore your startup profile and discover potential partners.
 - **Startup:** View and manage your startup profile.
 - **Collaboration:** Discover potential partners and initiate collaborations.
 - **Logout:** Log out of your CollabConnect account.
