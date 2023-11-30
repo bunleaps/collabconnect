@@ -1,22 +1,22 @@
-<header class="container mb-3">
-  <div class="is-flex is-align-items-center mt-3">
-    <i class="bi bi-plugin mr-2"></i>
-    <h3 class="py-3">Collab <br /><b>Connect</b></h3>
-  </div>
-  <div
-    class="is-flex is-align-items-center is-justify-content-space-between mt-3"
-  >
-    <ul class="is-flex">
-      <li class="mr-6"><a href="/dashboard">Home</a></li>
-      <li class="mr-6"><a href="/search">StartUp</a></li>
-      <li class="mr-6"><a>Collaboration</a></li>
-    </ul>
-    <a class="button is-primary" href="/auth/logout">Log Out</a>
+<header class="container is-flex is-flex-direction-column pt-2">
+  <div class="is-flex is-justify-content-space-between is-align-items-center">
+    <div class="is-flex is-align-items-center mt-3">
+      <i class="bi bi-plugin mr-2"></i>
+      <h3 class="py-2">Collab <br /><b>Connect</b></h3>
+    </div>
+    <div>
+      <ul class="is-flex is-flex-direction-row is-align-items-center pt-2">
+        <li class="mr-6"><a href="/dashboard">Home</a></li>
+        <li class="mr-6"><a href="/search">StartUp</a></li>
+        <li class="mr-6"><a href="/">Collaboration</a></li>
+        <a href="/auth/logout" class="button is-primary" style="width: 100px;">Log Out</a>
+     </ul>
+    </div>
   </div>
 </header>
 
 <style>
-  header > div > i {
+  header > div > div > i {
     font-size: 20px;
     padding: 5px 9px;
     border-radius: 10px;
@@ -24,16 +24,16 @@
     background: #1abc9c;
   }
 
-  header > div > h3 {
+  header > div > div > h3 {
     line-height: 16px;
   }
 
-  header > div > ul > li {
+  header > div > div > ul > li {
     text-transform: uppercase;
     font-weight: 600;
   }
 
-  header > div > ul > li > a {
+  header > div > div > ul > li > a {
     text-decoration: none;
     color: black;
   }

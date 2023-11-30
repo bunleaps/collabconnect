@@ -5,38 +5,38 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main class="pt-6">
-      <div class="container mb-6">
-        <div class="columns">
-          <div
-            class="column py-6 is-flex is-flex-direction-column is-justify-content-center"
-          >
-            <div>
-              <h1 class="title">COLLABORATIVE<br />SOLUTIONS FOR START-UP</h1>
-              <p class="subtitle">
-                Unlock the full potential of your start-up through our
-                collaborative solutions, where innovative minds converge with
-                expert insights to navigate challenges and propel your
-                entrepreneurial journey to unprecedented heights
-              </p>
-              <a class="button is-primary" href="auth/login">Get Started</a>
+    <main>
+      <div class="hero is-fullheight-with-navbar is-flex is-align-items-center px-6">
+        <div class="container is-flex is-align-items-center">
+          <div class="columns">
+            <div class="column is-flex is-flex-direction-column is-justify-content-center">
+              <div>
+                <h1 class="title">COLLABORATIVE<br/>SOLUTIONS FOR START-UP</h1>
+                <p class="subtitle">
+                  Unlock the full potential of your start-up through our
+                  collaborative solutions, where innovative minds converge with
+                  expert insights to navigate challenges and propel your
+                  entrepreneurial journey to unprecedented heights
+                </p>
+                <a class="button is-primary" href="auth/login">Get Started <i class="bi bi-arrow-right ml-3"></i></a>
+              </div>
             </div>
-          </div>
-          <div class="column">
-            <img
-              style="border-radius: 10px"
-              src="/images/jumbo.jpeg"
-              alt="Jumbo"
-            />
+            <div class="column">
+              <img
+                style="border-radius: 10px"
+                src="/images/jumbo.jpeg"
+                alt="Jumbo"
+              />
+            </div>
           </div>
         </div>
       </div>
 
       <div class="has-background-primary">
-        <div class="container py-6">
-          <div class="has-text-centered">
+        <div class="p-6">
+          <div class="has-text-centered mb-4 px-6">
             <h1 class="title has-text-white-bis">Featured Partners</h1>
-            <p class="subtitle has-text-white-bis">
+            <p class="subtitle has-text-white-bis p-4">
               Explore excellence with our standout partners, leaders in
               innovation and collaboration. Together, we redefine industry
               standards, driven by shared vision and unwavering commitment. join
@@ -44,62 +44,62 @@
               possibilities
             </p>
           </div>
-          <div class="columns mt-2">
-            <div class="column is-flex">
+
+          <div class="columns mt-2 is-desktop is-flex is-flex-wrap-wrap">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
-                <img src="/images/aws.png" alt="NASA" />
+                <img src="/images/aws.png" alt="AWS" />
               </div>
             </div>
-            <div class="column is-flex">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
                 <img src="/images/nasa.png" alt="NASA" />
               </div>
             </div>
-            <div class="column is-flex">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
                 <img src="/images/ms.png" alt="Microsoft" />
               </div>
             </div>
-          </div>
-          <div class="columns mt-2">
-            <div class="column is-flex">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
                 <img src="/images/google.png" alt="Google" />
               </div>
             </div>
-            <div class="column is-flex">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
                 <img src="/images/ks.png" alt="Kickstarter" />
               </div>
             </div>
-            <div class="column is-flex">
+            <div class="column is-one-third-desktop is-half-tablet is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center"
-                style="width: 100%"
+                style="width: 100%; height: 200px;"
               >
                 <img src="/images/twitch.png" alt="twitch" />
               </div>
             </div>
           </div>
+    
         </div>
       </div>
 
-      <div class="has-background-light">
+      <div class="has-background">
         <div class="container py-6">
           <div class="has-text-centered">
             <h1 class="title">Featured Partners</h1>
@@ -111,43 +111,50 @@
               possibilities
             </p>
           </div>
-          <div class="columns mt-3">
+          <div class="columns mt-3 py-4">
             <div class="column">
               <img src="/images/nasa-img.png" alt="NASA Exploration" />
             </div>
-            <div class="column">
-              <h1 class="title is-4">
-                COLLABORATION WITH<br />NASA SPACE EXPLORATION
-              </h1>
-              <p class="subtitle">
-                The startup, StellarTech Innovations, achieved cosmic success by
-                collaborating with NASA on a groundbreaking space exploration
-                mission. Together, they redefined the limits of innovation,
-                setting a historic milestone in collaborative excellence and
-                propelling their startup to new heights in the space-age
-                frontier.
-              </p>
+            <div class="column is-flex is-align-items-center">
+              <div>
+                <h1 class="title is-4">
+                  COLLABORATION WITH<br/>NASA SPACE EXPLORATION
+                </h1>
+                <p class="subtitle">
+                  The startup, StellarTech Innovations, achieved cosmic success by
+                  collaborating with NASA on a groundbreaking space exploration
+                  mission. Together, they redefined the limits of innovation,
+                  setting a historic milestone in collaborative excellence and
+                  propelling their startup to new heights in the space-age
+                  frontier.
+                </p>
+              </div>
             </div>
           </div>
           <div class="columns">
-            <div class="column">
-              <h1 class="title is-4">COLLABORATION WITH<br />MICROSOFT</h1>
-              <p class="subtitle">
-                Teaming up with Microsoft, the startup, SmartFlush Innovations,
-                transformed the mundane toilet into a tech marvel. The result? A
-                sleek, efficient smart toilet that redefines bathroom
-                experiences, showcasing the power of innovation and
-                collaboration in unexpected places.
-              </p>
+            <div class="column py-4 is-flex is-align-items-center">
+              <div>
+                <h1 class="title is-4">COLLABORATION WITH<br/>MICROSOFT</h1>
+                <p class="subtitle">
+                  Teaming up with Microsoft, the startup, SmartFlush Innovations,
+                  transformed the mundane toilet into a tech marvel. The result? A
+                  sleek, efficient smart toilet that redefines bathroom
+                  experiences, showcasing the power of innovation and
+                  collaboration in unexpected places.
+                </p>
+              </div>
             </div>
             <div class="column">
-              <img src="/images/ms-toilet.png" alt="MS Toilet" />
+              <img src="/images/ms-toilet.png" alt="MS Toilet"/>
             </div>
           </div>
         </div>
       </div>
     </main>
 
+    <script>
+      
+    </script>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>
   </body>
