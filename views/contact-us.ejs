@@ -1,15 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- THE HEAD TAG PARTIAL -->
-  <%- include("partials/head") %>
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("partials/head") %>
 
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main class="container my-6">
-      <h1 class="title has-text-centered">Coming Soon ...</h1>
-    </main>
-    <!-- THE HEAD TAG PARTIAL -->
-    <%- include("partials/footer") %>
+      <main class="container my-6 pt-6 pb-2">
+        <div class="container is-flex is-flex-direction-row is-justify-content-space-between py-6">
+          <div class="column is-flex is-flex-direction-column is-half pt-6">
+            <h1 class="title is-2">Contact Us</h1>
+            <p class="is-size-6 mb-6">
+              Feel free to message us by filling in the form or look at 
+              <a href="#supportGroup">Get in Touch</a> below.
+            </p>
+            <div class="logo-spam mt-2">
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-instagram"></i>
+              <i class="bi bi-twitter-x"></i>
+            </div>
+          </div>
+          <div class="column is-flex is-flex-direction-column is-half">
+            <div>
+              <p>Name</p>
+              <input class="input is-normal mb-4" type="text" placeholder="Your name">
+            </div>
+            <div>
+              <p>Your email <span style="color: red;">*</span></p>
+              <input class="input is-normal mb-4" type="text" placeholder="Your email address">
+            </div>
+            <div>
+              <p>Message <span style="color: red;">*</span></p>
+              <textarea class="textarea input mb-4" type="textarea" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="control">
+              <button class="button is-primary" style="width: 100px;">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container is-flex is-flex-direction-column has-text-centered py-6" id="supportGroup">
+          <h2 class="title is-2">Get in Touch</h2>
+          <p class="is-size-6">We want to hear from you. Let us know how we can help</p>
+          <div class="container is-flex is-flex-direction-row py-4">
+            <div class="columns is-12 is-fullwidth">
+              <div class="column is-4">
+                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
+                  <div class="is-flex is-flex-direction-column">
+                    <i class="bi bi-envelope-at"></i>
+                    <h5 class="is-size-5">Email Support</h5>
+                    <p class="is-size-6">support@collabconnect.com</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
+                  <i class="bi bi-chat-left-dots"></i>
+                  <h5 class="is-size-5">Phone and Chat Support</h5>
+                  <p class="is-size-6">Our support team is just a click away</p>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
+                  <i class="bi bi-geo-alt"></i>
+                  <h5 class="is-size-5">Visit Us</h5>
+                  <p class="is-size-6"><a href="#">View on Google Maps</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container is-flex is-flex-direction-column has-text-centered is-justify-content-center py-6">
+          <h2 class="is-size-5">Frequently Asked Questions (FAQ)</h2>
+          <div class="card is-flex is-flex-direction-column">
+            <h3 class="title is-6">Question 1</h3>
+            <p class="subtitle is-6">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
+              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
+              Porro, facilis fugit?
+            </p>
+          </div>
+          <div class="card is-flex is-flex-direction-column">
+            <h3 class="title is-6">Question 2</h3>
+            <p class="subtitle is-6">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
+              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
+              Porro, facilis fugit?
+            </p>
+          </div>
+          <div class="card is-flex is-flex-direction-column">
+            <h3 class="title is-6">Question 3</h3>
+            <p class="subtitle is-6">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
+              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
+              Porro, facilis fugit?
+            </p>
+          </div>
+        </div>
+      </main>
+      <!-- THE HEAD TAG PARTIAL -->
+      <%- include("partials/footer") %>
   </body>
+
 </html>
