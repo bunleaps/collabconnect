@@ -7,69 +7,67 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header-auth") %>
-    <main class="container">
-      <h1 class="title has-text-centered">Search Startups</h1>
-
-      <!-- Add a search input form -->
-      <form action="/search" method="get" class="mb-5">
-        <label for="name">Search by Name:</label>
-        <input
-          class="input mb-2"
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter startup name"
-          value="<%= searchQuery %>"
-        />
-        <label for="category">Filter by Category:</label>
-        <input
-          class="input"
-          type="text"
-          id="category"
-          name="category"
-          placeholder="Enter category"
-          value="<%= categoryQuery %>"
-        />
-        <button class="button is-primary mt-2" type="submit">Search</button>
-      </form>
-
-      <ul>
-        <% startups.forEach(startup => { %>
-        <!-- Log startup name and search query for debugging -->
-        <% console.log("Startup Name:", startup.info.name); %> <%
-        console.log("Search Query:", searchQuery); %>
-
-        <!-- Check if the startup matches the search criteria -->
-        <% if (startup.info && (searchQuery ?
-        startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
-        true)) { %>
-        <div class="column">
-          <div class="box is-flex">
-            <figure class="image is-128x128 mr-4">
-              <img class="is-rounded" src="<%= startup.info.image ||
-              "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
-            </figure>
-            <div class="is-flex is-flex-direction-column pt-2">
-              <h3 class="title is-5"><%= startup.info.name || "NaN" %></h3>
-              <p class="subtitle is-6"><%= startup.info.founder || "NaN" %></p>
-              <p>
-                <i class="bi bi-link-45deg"></i> <%= startup.info.website ||
-                "NaN" %>
-              </p>
-              <p>
-                <strong>Tags:</strong> <% if (startup.info.categories &&
-                startup.info.categories.length > 0) { %> <%=
-                startup.info.categories.join(', ') %> <% } else { %> "NaN" <% }
-                %>
-              </p>
+    <main class="special is-absolute alt-background pl-6">
+      <div class="container">
+        <h1 class="title has-text-centered pt-6">Search Startups</h1>
+        <!-- Add a search input form -->
+        <form action="/search" method="get" class="mb-5">
+          <label for="name">Search by Name:</label>
+          <input
+            class="input mb-2"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter startup name"
+            value="<%= searchQuery %>"
+          />
+          <label for="category">Filter by Category:</label>
+          <input
+            class="input"
+            type="text"
+            id="category"
+            name="category"
+            placeholder="Enter category"
+            value="<%= categoryQuery %>"
+          />
+          <button class="button is-primary mt-2" type="submit">Search</button>
+        </form>
+  
+        <ul>
+          <% startups.forEach(startup => { %>
+          <!-- Log startup name and search query for debugging -->
+          <% console.log("Startup Name:", startup.info.name); %> <%
+          console.log("Search Query:", searchQuery); %>
+  
+          <!-- Check if the startup matches the search criteria -->
+          <% if (startup.info && (searchQuery ?
+          startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
+          true)) { %>
+          <div class="column">
+            <div class="box is-flex">
+              <figure class="image is-128x128 mr-4">
+                <img class="is-rounded" src="<%= startup.info.image ||
+                "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
+              </figure>
+              <div class="is-flex is-flex-direction-column pt-2">
+                <h3 class="title is-5"><%= startup.info.name || "NaN" %></h3>
+                <p class="subtitle is-6"><%= startup.info.founder || "NaN" %></p>
+                <p>
+                  <i class="bi bi-link-45deg"></i> <%= startup.info.website ||
+                  "NaN" %>
+                </p>
+                <p>
+                  <strong>Tags:</strong> <% if (startup.info.categories &&
+                  startup.info.categories.length > 0) { %> <%=
+                  startup.info.categories.join(', ') %> <% } else { %> "NaN" <% }
+                  %>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <% } %> <% }); %>
-      </ul>
+          <% } %> <% }); %>
+        </ul>
+      </div>
     </main>
-
-    <!-- THE FOOTER TAG PARTIAL -->
-    <%- include("partials/footer") %>
   </body>
 </html>

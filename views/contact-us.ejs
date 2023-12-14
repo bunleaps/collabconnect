@@ -3,7 +3,7 @@
 <!-- THE HEAD TAG PARTIAL -->
 <%- include("partials/head") %>
 
-  <body>
+  <body class="alt-background">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
       <main class="container my-6 pt-6 pb-2">
@@ -12,12 +12,12 @@
             <h1 class="title is-2">Contact Us</h1>
             <p class="is-size-6 mb-6">
               Feel free to message us by filling in the form or look at 
-              <a href="#supportGroup">Get in Touch</a> below.
+              <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
             </p>
             <div class="logo-spam mt-2">
-              <i class="bi bi-facebook"></i>
-              <i class="bi bi-instagram"></i>
-              <i class="bi bi-twitter-x"></i>
+              <a href="#"><i class="bi bi-facebook p-1" style="font-size: 24px;"></i></a>
+              <a href="#"><i class="bi bi-instagram p-1" style="font-size: 24px;"></i></a>
+              <a href="#"><i class="bi bi-twitter-x p-1" style="font-size: 24px;"></i></a>
             </div>
           </div>
           <div class="column is-flex is-flex-direction-column is-half">
@@ -41,63 +41,46 @@
 
         <div class="container is-flex is-flex-direction-column has-text-centered py-6" id="supportGroup">
           <h2 class="title is-2">Get in Touch</h2>
-          <p class="is-size-6">We want to hear from you. Let us know how we can help</p>
-          <div class="container is-flex is-flex-direction-row py-4">
-            <div class="columns is-12 is-fullwidth">
+          <p class="is-size-6 pb-4">We want to hear from you. Let us know how we can help</p>
+          <div class="container is-flex is-flex-direction-row py-4" style="width: 100%;">
+            <div class="columns is-12 is-flex" style="width: 100%;">
               <div class="column is-4">
-                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
-                  <div class="is-flex is-flex-direction-column">
-                    <i class="bi bi-envelope-at"></i>
-                    <h5 class="is-size-5">Email Support</h5>
-                    <p class="is-size-6">support@collabconnect.com</p>
+                <!-- NOT DONE -->
+                <a href="#supportGroup">
+                  <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
+                    <div class="is-flex is-flex-direction-column is-align-items-center">
+                      <i class="bi bi-envelope-at" style="font-size: 24px;"></i>
+                      <h5 class="is-size-5">Email Support</h5>
+                      <p class="is-size-6">support@collabconnect.com</p>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
               <div class="column is-4">
-                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
-                  <i class="bi bi-chat-left-dots"></i>
-                  <h5 class="is-size-5">Phone and Chat Support</h5>
-                  <p class="is-size-6">Our support team is just a click away</p>
-                </div>
+                <!-- NOT DONE -->
+                <a href="#supportGroup">
+                  <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
+                    <i class="bi bi-chat-left-dots" style="font-size: 24px;"></i>
+                    <h5 class="is-size-5">Phone and Chat Support</h5>
+                    <p class="is-size-6">Our support team is just a click away</p>
+                  </div>
+                </a>
               </div>
               <div class="column is-4">
-                <div class="card is-flex is-flex-direction-column is-align-items-center p-4" style="height: 250px;">
-                  <i class="bi bi-geo-alt"></i>
-                  <h5 class="is-size-5">Visit Us</h5>
-                  <p class="is-size-6"><a href="#">View on Google Maps</a></p>
-                </div>
+                <!-- NOT DONE -->
+                <a href="#supportGroup">
+                  <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
+                    <i class="bi bi-geo-alt" style="font-size: 24px;"></i>
+                    <h5 class="is-size-5">Visit Us</h5>
+                    <p class="is-size-6">View on Google Maps</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="container is-flex is-flex-direction-column has-text-centered is-justify-content-center py-6">
-          <h2 class="is-size-5">Frequently Asked Questions (FAQ)</h2>
-          <div class="card is-flex is-flex-direction-column">
-            <h3 class="title is-6">Question 1</h3>
-            <p class="subtitle is-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
-              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
-              Porro, facilis fugit?
-            </p>
-          </div>
-          <div class="card is-flex is-flex-direction-column">
-            <h3 class="title is-6">Question 2</h3>
-            <p class="subtitle is-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
-              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
-              Porro, facilis fugit?
-            </p>
-          </div>
-          <div class="card is-flex is-flex-direction-column">
-            <h3 class="title is-6">Question 3</h3>
-            <p class="subtitle is-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse libero totam atque explicabo molestiae
-              omnis ratione reiciendis eius veritatis. Deleniti nam consequuntur, consectetur rem esse placeat at.
-              Porro, facilis fugit?
-            </p>
-          </div>
-        </div>
+        
       </main>
       <!-- THE HEAD TAG PARTIAL -->
       <%- include("partials/footer") %>

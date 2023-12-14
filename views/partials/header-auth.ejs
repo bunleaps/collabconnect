@@ -1,40 +1,140 @@
-<header class="container is-flex is-flex-direction-column pt-2">
-  <div class="is-flex is-justify-content-space-between is-align-items-center">
-    <div class="is-flex is-align-items-center mt-3">
-      <i class="bi bi-plugin mr-2"></i>
-      <h3 class="py-2">Collab <br /><b>Connect</b></h3>
+<header>
+  <aside class="sidebar menu collapsed">
+    <div class="is-flex is-flex-direction-column is-justify-content-center px-4">
+      <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+        <div class="is-flex is-align-items-center my-3 pb-4" style="height: 60px;">
+          <i class="bi bi-plugin mr-2 icon-logo"></i>
+          <h3 class="py-2 text-logo hidden">Collab <br/><b>Connect</b></h3>
+        </div>
+        <div class="is-flex is-align-items-center is-justify-content-center my-3 pb-4">
+          <i class="bi bi-list menu-icon hidden" style="font-size: 32px;"></i>
+        </div>
+      </div>
+      <div class="space-filler"></div>
+      <ul class="menu-list">
+        <li><a href="/dashboard"><i class="bi bi-house mr-2 icon-sidebar"></i> <span class="bye-text hidden">Dashboard</span></a></li>
+        <li><a href="/search"><i class="bi bi-search mr-2 icon-sidebar"></i> <span class="bye-text hidden">Search</span></a></li>
+        <li><a href="#"><i class="bi bi-people-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Collaboration</span></a></li>
+        <li><a href="#"><i class="bi bi-gear-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Settings</span></a></li>
+      </ul>
     </div>
-    <div>
-      <ul class="is-flex is-flex-direction-row is-align-items-center pt-2">
-        <li class="mr-6"><a href="/dashboard">Home</a></li>
-        <li class="mr-6"><a href="/search">StartUp</a></li>
-        <li class="mr-6"><a href="/">Collaboration</a></li>
-        <a href="/auth/logout" class="button is-primary" style="width: 100px;">Log Out</a>
-     </ul>
+    <div class="logout-btn px-4 pb-4">
+      <ul class="menu-list">
+        <li><a href="/auth/logout"><i class="bi bi-box-arrow-right mr-2 icon-sidebar"></i> <span class="bye-text hidden">Logout</span></a></li>
+      </ul>
     </div>
-  </div>
+  </aside>
+
+  <script>
+    $(document).ready(function () {
+      sideCollapsed = true;
+
+      $(".menu-icon").click(
+        function () {
+          $(".menu-icon").toggle();
+          $(".bye-text").toggle();
+          $(".text-logo").toggle();
+          $(".space-filler").toggle();
+          $(".sidebar").toggleClass("collapsed");
+          sideCollapsed = false; 
+          setTimeout(() => {
+            sideCollapsed = true; 
+          }, 100);
+        }
+      );
+
+      $("body").click(
+        function () {
+          if (!sideCollapsed) {
+            $(".menu-icon").toggle();
+            $(".bye-text").toggle();
+            $(".text-logo").toggle();
+            $(".space-filler").toggle();
+            $(".sidebar").toggleClass("collapsed");
+            sideCollapsed = false; 
+            setTimeout(() => {
+              sideCollapsed = true; 
+            }, 100);
+          }
+        }
+      );
+
+      $(".sidebar").click(
+        function () {
+          if ($(".sidebar").hasClass("collapsed") && sideCollapsed) {
+            $(".menu-icon").toggle();
+            $(".bye-text").toggle();
+            $(".text-logo").toggle();
+            $(".space-filler").toggle();
+            $(".sidebar").removeClass("collapsed");
+            sideCollapsed = true; 
+            setTimeout(() => {
+              sideCollapsed = false; 
+            }, 100);
+          }
+          
+          if (!sideCollapsed) {
+            $(".menu-icon").toggle();
+            $(".bye-text").toggle();
+            $(".text-logo").toggle();
+            $(".space-filler").toggle();
+            $(".sidebar").toggleClass("collapsed");
+            sideCollapsed = false; 
+            setTimeout(() => {
+              sideCollapsed = true; 
+            }, 100);
+          }
+        },
+      );
+    });
+  </script>
 </header>
 
 <style>
-  header > div > div > i {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background: #D4D4D4;
+    transition: width 0.1s;
+    z-index: 99;
+  }
+
+  .sidebar>ul>li>a {
+    color: black;
+    vertical-align: middle;
+  }
+
+  .icon-logo {
     font-size: 20px;
     padding: 5px 9px;
     border-radius: 10px;
     color: white;
-    background: #1abc9c;
+    background: #1ABC9C;
   }
 
-  header > div > div > h3 {
+  .text-logo {
     line-height: 16px;
-  }
-
-  header > div > div > ul > li {
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  header > div > div > ul > li > a {
-    text-decoration: none;
     color: black;
+  }
+
+  .logout-btn {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .icon-sidebar {
+    font-size: 21px;
+  }
+
+  .collapsed {
+    width: 76px;
+  }
+
+  .space-filler {
+    height: 2px;
   }
 </style>

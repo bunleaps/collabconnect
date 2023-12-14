@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- THE HEAD TAG PARTIAL -->
-  <%- include("partials/head") %>
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("partials/head") %>
 
-  <body>
+  <body class="alt-background">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main class="container my-6">
-      <div>
-        <h1 class="title">About</h1>
-        <p class="subtitle">
-          CollabConnect stands at the forefront of innovation, redefining the
-          landscape of startup collaboration with its cutting-edge platform
-          designed to streamline and expedite partnership processes. As a
-          dedicated startup partnership website, CollabConnect is on a mission
-          to empower emerging businesses by facilitating swift and seamless
-          connections between like-minded enterprises. With an unwavering
-          commitment to simplifying the collaboration journey, CollabConnect
-          transforms the traditionally intricate process of forming partnerships
-          into an efficient and user-friendly experience.
-        </p>
-        <p class="subtitle">
-          At the heart of CollabConnect's success lies its intuitive interface,
-          allowing startups to effortlessly create and customize partnership
-          requests within minutes. Gone are the days of navigating through
-          complex paperwork and convoluted negotiations—CollabConnect ensures
-          that the path to collaboration is clear and accessible. The platform's
-          real-time notifications and rapid response system further elevate the
-          user experience, enabling startups to engage with potential partners
-          promptly and efficiently.
-        </p>
-        <p class="subtitle">
-          CollabConnect doesn't just stop at the initiation of collaboration; it
-          goes beyond by providing robust tools for collaborative planning,
-          document sharing, and progress tracking. This comprehensive approach
-          ensures that startups can not only establish partnerships quickly but
-          also nurture and optimize these collaborations for mutual success.
-          Whether you're a burgeoning tech innovator, a disruptive market
-          entrant, or a visionary in any industry, CollabConnect opens the doors
-          to a world of possibilities, making startup partnerships quicker,
-          easier, and more impactful than ever before. Join the CollabConnect
-          revolution and propel your startup towards unparalleled collaborative
-          success.
-        </p>
-      </div>
-    </main>
-    <!-- THE HEAD TAG PARTIAL -->
-    <%- include("partials/footer") %>
+      <main class="container my-6">
+        <div class="py-6 my-6 is-flex is-flex-direction-column has-text-left">
+          <h1 class="title py-2">About Us</h1>
+          <p class="subtitle is-gapless">
+            CollabConnect stands at the forefront of innovation, redefining the
+            landscape of startup collaboration with its cutting-edge platform
+            designed to streamline and expedite partnership processes. As a
+            dedicated startup partnership website, CollabConnect is on a mission
+            to empower emerging businesses by facilitating swift and seamless
+            connections between like-minded enterprises. With an unwavering
+            commitment to simplifying the collaboration journey, CollabConnect
+            transforms the traditionally intricate process of forming partnerships
+            into an efficient and user-friendly experience.
+          </p>
+        </div>
+
+        <div class="space" style="height: 60px;"></div>
+
+        <div class="container py-4 my-6 is-flex is-flex-direction-row columns is-12 is-justify-content-space-between is-align-items-center">
+          <div class="column is-6">
+            <h1 class="title">Simplifying Partnerships</h1>
+            <p class="subtitle">
+              CollabConnect is commited to narrowing the divide between startups and
+              potential partners. Our mission is to simplify and streamline the
+              partnership process, allowing you to concentrate on what matters most.
+            </p>
+          </div>
+          <div class="column is-4">
+            <img src="/images/about-partnership.jpg" alt="Partnership" width="450px" height="250px" style="border-radius: 10px; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);">
+          </div>
+        </div>
+
+        <div class="space" style="height: 60px;"></div>
+
+        <div class="has-text-centered py-6 mt-6">
+          <h1 class="title">Team</h1>
+          <p class="subtitle">
+            Meet the people behind our magical product
+          </p>
+
+          <div class="columns is-flex is-flex-direction-row is-justify-content-spave-evenly is-align-items-center p-6 my-6">
+            <div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/016/766/342/original/happy-smiling-young-man-avatar-3d-portrait-of-a-man-cartoon-character-people-illustration-isolated-on-transparent-background-png.png" alt="Person" style="border-radius: 50%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" width="180px">
+              <p class="pt-4 subtitle">Bunleap</p>
+            </div>
+            <div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/016/766/342/original/happy-smiling-young-man-avatar-3d-portrait-of-a-man-cartoon-character-people-illustration-isolated-on-transparent-background-png.png" alt="Person" style="border-radius: 50%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" width="180px">
+              <p class="pt-4 subtitle">Alexander</p>
+            </div>
+            <div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+              <img src="https://static.vecteezy.com/system/resources/previews/016/766/342/original/happy-smiling-young-man-avatar-3d-portrait-of-a-man-cartoon-character-people-illustration-isolated-on-transparent-background-png.png" alt="Person" style="border-radius: 50%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);" width="180px">
+              <p class="pt-4 subtitle">Darren</p>
+            </div>
+          </div>
+        </div>
+        
+      </main>
+      <!-- THE HEAD TAG PARTIAL -->
+      <%- include("partials/footer") %>
   </body>
+
 </html>
