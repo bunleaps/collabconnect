@@ -7,7 +7,10 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header-auth") %>
-    <main class="special is-absolute alt-background pl-6">
+    <main
+      class="special is-absolute alt-background"
+      style="padding-left: 6rem !important"
+    >
       <div class="container">
         <h1 class="title has-text-centered pt-6">Search Startups</h1>
         <!-- Add a search input form -->
@@ -32,13 +35,13 @@
           />
           <button class="button is-primary mt-2" type="submit">Search</button>
         </form>
-  
+
         <ul>
           <% startups.forEach(startup => { %>
           <!-- Log startup name and search query for debugging -->
           <% console.log("Startup Name:", startup.info.name); %> <%
           console.log("Search Query:", searchQuery); %>
-  
+
           <!-- Check if the startup matches the search criteria -->
           <% if (startup.info && (searchQuery ?
           startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
@@ -51,7 +54,9 @@
               </figure>
               <div class="is-flex is-flex-direction-column pt-2">
                 <h3 class="title is-5"><%= startup.info.name || "NaN" %></h3>
-                <p class="subtitle is-6"><%= startup.info.founder || "NaN" %></p>
+                <p class="subtitle is-6">
+                  <%= startup.info.founder || "NaN" %>
+                </p>
                 <p>
                   <i class="bi bi-link-45deg"></i> <%= startup.info.website ||
                   "NaN" %>
@@ -59,8 +64,8 @@
                 <p>
                   <strong>Tags:</strong> <% if (startup.info.categories &&
                   startup.info.categories.length > 0) { %> <%=
-                  startup.info.categories.join(', ') %> <% } else { %> "NaN" <% }
-                  %>
+                  startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
+                  } %>
                 </p>
               </div>
             </div>

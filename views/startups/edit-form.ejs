@@ -7,10 +7,13 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("../partials/header-auth") %>
-    <main class="special is-absolute alt-background pl-6">
+    <main
+      class="special is-absolute alt-background"
+      style="padding-left: 6rem !important"
+    >
       <div class="container my-6">
         <h3 class="title is-5 has-text-centered">Edit Startup</h3>
-  
+
         <form action="/startup/edit" method="post">
           <label class="label mt-3">Name</label>
           <input
