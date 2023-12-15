@@ -3,38 +3,92 @@
 <!-- THE HEAD TAG PARTIAL -->
 <%- include("partials/head") %>
 
-  <body class="alt-background">
+  <body class="alt-background" style="overflow-x: hidden;">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-      <main class="container my-6 pt-6 pb-2">
-        <div class="container is-flex is-flex-direction-row is-justify-content-space-between py-6">
-          <div class="column is-flex is-flex-direction-column is-half pt-6">
-            <h1 class="title is-2">Contact Us</h1>
-            <p class="is-size-6 mb-6">
-              Feel free to message us by filling in the form or look at 
-              <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
-            </p>
-            <div class="logo-spam mt-2">
-              <a href="#"><i class="bi bi-facebook p-1" style="font-size: 24px;"></i></a>
-              <a href="#"><i class="bi bi-instagram p-1" style="font-size: 24px;"></i></a>
-              <a href="#"><i class="bi bi-twitter-x p-1" style="font-size: 24px;"></i></a>
+      <main class="custom-container">
+        <div class="container my-6 pt-6 pb-2 is-hidden-mobile">
+          <div class="container columns is-flex-wrap-wrap is-flex is-flex-direction-row is-justify-content-space-between py-6">
+            <div class="column is-flex is-flex-direction-column is-half is-full-mobile pt-6">
+              <div class="is-hidden-mobile">
+                <h1 class="title is-2">Contact Us</h1>
+                <p class="is-size-6 mb-6">
+                  Feel free to message us by filling in the form or look at 
+                  <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
+                </p>
+              </div>
+              <div class="is-hidden-desktop is-hidden-tablet">
+                <h1 class="title is-2 has-text-centered">Contact Us</h1>
+                <p class="is-size-6 mb-6 has-text-centered">
+                  Feel free to message us by filling in the form or look at 
+                  <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
+                </p>
+              </div>
+              <div class="logo-spam mt-2">
+                <a href="#"><i class="bi bi-facebook p-1" style="font-size: 24px;"></i></a>
+                <a href="#"><i class="bi bi-instagram p-1" style="font-size: 24px;"></i></a>
+                <a href="#"><i class="bi bi-twitter-x p-1" style="font-size: 24px;"></i></a>
+              </div>
+            </div>
+            <div class="column is-flex is-flex-direction-column is-half">
+              <div>
+                <p>Name</p>
+                <input class="input is-normal mb-4" type="text" placeholder="Your name">
+              </div>
+              <div>
+                <p>Your email <span style="color: red;">*</span></p>
+                <input class="input is-normal mb-4" type="text" placeholder="Your email address">
+              </div>
+              <div>
+                <p>Message <span style="color: red;">*</span></p>
+                <textarea class="textarea input mb-4" type="textarea" placeholder="Enter your message"></textarea>
+              </div>
+              <div class="control">
+                <button class="button is-primary" style="width: 100px;">Submit</button>
+              </div>
             </div>
           </div>
-          <div class="column is-flex is-flex-direction-column is-half">
-            <div>
-              <p>Name</p>
-              <input class="input is-normal mb-4" type="text" placeholder="Your name">
+        </div>
+
+        <div class="container is-hidden-desktop is-hidden-tablet">
+          <div class="container columns is-flex-wrap-wrap is-flex is-flex-direction-row is-justify-content-space-between py-6">
+            <div class="column is-flex is-flex-direction-column is-half is-full-mobile pt-2">
+              <div class="is-hidden-mobile">
+                <h1 class="title is-2">Contact Us</h1>
+                <p class="is-size-6 mb-6">
+                  Feel free to message us by filling in the form or look at 
+                  <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
+                </p>
+              </div>
+              <div class="is-hidden-desktop is-hidden-tablet">
+                <h1 class="title is-2 has-text-centered">Contact Us</h1>
+                <p class="is-size-6 has-text-centered">
+                  Feel free to message us by filling in the form or look at 
+                  <a href="#supportGroup" style="color: blue;">Get in Touch</a> below.
+                </p>
+              </div>
+              <div class="logo-spam mt-2 is-flex is-justify-content-center">
+                <a href="#" class="is-flex"><i class="bi bi-facebook p-1" style="font-size: 24px;"></i></a>
+                <a href="#" class="is-flex"><i class="bi bi-instagram p-1" style="font-size: 24px;"></i></a>
+                <a href="#" class="is-flex"><i class="bi bi-twitter-x p-1" style="font-size: 24px;"></i></a>
+              </div>
             </div>
-            <div>
-              <p>Your email <span style="color: red;">*</span></p>
-              <input class="input is-normal mb-4" type="text" placeholder="Your email address">
-            </div>
-            <div>
-              <p>Message <span style="color: red;">*</span></p>
-              <textarea class="textarea input mb-4" type="textarea" placeholder="Enter your message"></textarea>
-            </div>
-            <div class="control">
-              <button class="button is-primary" style="width: 100px;">Submit</button>
+            <div class="column is-flex is-flex-direction-column is-half">
+              <div>
+                <p>Name</p>
+                <input class="input is-normal mb-4" type="text" placeholder="Your name">
+              </div>
+              <div>
+                <p>Your email <span style="color: red;">*</span></p>
+                <input class="input is-normal mb-4" type="text" placeholder="Your email address">
+              </div>
+              <div>
+                <p>Message <span style="color: red;">*</span></p>
+                <textarea class="textarea input mb-4" type="textarea" placeholder="Enter your message"></textarea>
+              </div>
+              <div class="control">
+                <button class="button is-primary" style="width: 100px;">Submit</button>
+              </div>
             </div>
           </div>
         </div>
@@ -42,12 +96,12 @@
         <div class="container is-flex is-flex-direction-column has-text-centered py-6" id="supportGroup">
           <h2 class="title is-2">Get in Touch</h2>
           <p class="is-size-6 pb-4">We want to hear from you. Let us know how we can help</p>
-          <div class="container is-flex is-flex-direction-row py-4" style="width: 100%;">
-            <div class="columns is-12 is-flex" style="width: 100%;">
-              <div class="column is-4">
-                <!-- NOT DONE -->
-                <a href="#supportGroup">
-                  <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
+
+          <div class="container is-flex is-flex-direction-row is-justify-content-center py-4" style="width: 100%;">
+            <div class="columns is-12 is-flex is-flex-wrap-wrap is-justify-content-center is-align-items-center" style="width: 100%;">
+              <div class="column is-4 is-12-mobile" style="width: 100%;">
+                <a href="#supportGroup" style="width: 100%;">
+                  <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px; width: 100%;">
                     <div class="is-flex is-flex-direction-column is-align-items-center">
                       <i class="bi bi-envelope-at" style="font-size: 24px;"></i>
                       <h5 class="is-size-5">Email Support</h5>
@@ -56,8 +110,7 @@
                   </div>
                 </a>
               </div>
-              <div class="column is-4">
-                <!-- NOT DONE -->
+              <div class="column is-4 is-12-mobile">
                 <a href="#supportGroup">
                   <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
                     <i class="bi bi-chat-left-dots" style="font-size: 24px;"></i>
@@ -66,8 +119,7 @@
                   </div>
                 </a>
               </div>
-              <div class="column is-4">
-                <!-- NOT DONE -->
+              <div class="column is-4 is-12-mobile">
                 <a href="#supportGroup">
                   <div class="card is-flex is-flex-direction-column is-align-items-center is-justify-content-center p-4" style="height: 250px;">
                     <i class="bi bi-geo-alt" style="font-size: 24px;"></i>

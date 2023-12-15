@@ -98,6 +98,13 @@
 
 @media screen and (max-width: 1024px) {
     .custom-container {
-      width: 90%;
+      width: 100%;
+    }
+  }
+
+@media screen and (max-width: 768px) {
+    .custom-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }

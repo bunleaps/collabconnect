@@ -2,15 +2,17 @@
 <html lang="en">
   <!-- THE HEAD TAG PARTIAL -->
   <%- include("partials/head") %>
-  <body class="alt-background">
+  <body class="alt-background" style="overflow-x: hidden;">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
     <main class="custom-container">
       <div class="hero is-fullheight-with-navbar is-flex is-align-items-center">
         <div class="container is-flex is-align-items-center">
           <div class="columns is-12 is-vcentered">
-            <div class="column is-12-mobile is-hidden-tablet is-hidden-desktop">
-              <img style="border-radius: 10px" src="/images/jumbo.jpeg" alt="Jumbo" />
+            <div class="columns is-12 is-hidden-tablet is-hidden-desktop is-flex is-justify-content-center">
+              <div class="column is-10-mobile is-flex">
+                <img style="border-radius: 10px" src="/images/jumbo.jpeg" alt="Jumbo" />
+              </div>
             </div>
             <div class="column is-12-mobile is-6-tablet is-6-desktop is-flex is-flex-direction-column is-justify-content-center">
               <div>
@@ -77,7 +79,7 @@
                       </div>
                       <div class="column is-7-desktop is-12-mobile">
                         <h1 class="title is-size-4-tablet is-size-5-mobile">Quick and Easy Request for Partnership</h1>
-                        <p class="subtitle is-size-6-tablet is-size-6-tablet has-text-justified">
+                        <p class="subtitle is-size-6-tablet is-size-6-mobile has-text-justified">
                           CollabConnect has revolutionized partnership requests, offering
                           a streamlined and user-friendly process. Users can customize and
                           submit requests within minutes, thanks to the platform's
@@ -216,7 +218,7 @@
           </div>
           <div class="columns is-12 my-4 py-4">
             <div class="is-flex is-justify-content-center is-align-items-center">
-              <div class="is-flex" style="width: auto;">
+              <div style="width: auto;">
                 <div class="column is-6-desktop is-12-tablet is-12-mobile">
                   <div class="columns is-12 is-flex is-justify-content-left">
                     <div class="column is-10">
@@ -229,7 +231,7 @@
                     <h1 class="title is-4 is-size-4-tablet is-size-4-mobile">
                       COLLABORATION WITH<br/>NASA SPACE EXPLORATION
                     </h1>
-                    <p class="subtitle is-size-5-tablet is-size-5-mobile">
+                    <p class="subtitle is-size-6-tablet is-size-6-mobile">
                       The startup, StellarTech Innovations, achieved cosmic success by
                       collaborating with NASA on a groundbreaking space exploration
                       mission. Together, they redefined the limits of innovation,
@@ -243,8 +245,8 @@
             </div>
           </div>
           <div class="columns is-12 my-4 py-4 is-flex is-justify-content-center is-align-items-center">
-            <div class="is-flex">
-              <div class="column is-hidden-desktop is-hidden-tablet is-12-mobile">
+            <div>
+              <div class="column is-hidden-desktop is-12-tablet is-12-mobile">
                 <div class="columns is-12 is-flex is-justify-content-center">
                   <div class="column is-10">
                     <img src="/images/home-toilet.jpg" alt="MS Toilet" style="border-radius: 10px"/>
@@ -254,7 +256,7 @@
               <div class="column is-6 py-4 is-flex is-align-items-center">
                 <div>
                   <h1 class="title is-4 is-size-4-tablet is-size-4-mobile">COLLABORATION WITH<br/>MICROSOFT</h1>
-                  <p class="subtitle is-size-5-tablet is-size-5-mobile">
+                  <p class="subtitle is-size-6-tablet is-size-6-mobile">
                     Teaming up with Microsoft, the startup, SmartFlush Innovations,
                     transformed the mundane toilet into a tech marvel. The result? A
                     sleek, efficient smart toilet that redefines bathroom
@@ -278,27 +280,27 @@
       <div class="container mb-6">
         <h1 class="title">What Our Clients Say?</h1>
         <div class="mb-6">
-          <div class="columns is-12 is-flex is-flex-direction-row is-justify-content-space-evenly py-4 mt-4 mb-6">
-            <div class="column is-5-desktop is-5-tablet is-12-mobile card p-4 is-flex is-flex-direction-column">
+          <div class="columns is-12 is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly py-4 mt-4 mb-6">
+            <div class="column is-5-desktop is-5-tablet is-11-mobile card p-4 is-flex is-flex-direction-column">
               <div class="is-flex is-flex-direction-row is-justify-content-space-between">
                 <div class="is-flex has-text-left is-flex-direction-row">
                   <img src="/images/home-testimony-1.png" alt="profile-picture" width="80px" height="80px" style="border-radius: 50%;">
                   <div class="is-flex is-flex-direction-column  is-justify-content-center ml-2">
                     <p class="is-size-5 has-text-left">Kairi</p>
-                    <p class="has-text-left">CEO, ABC Company</p>
+                    <p class="is-size-7 has-text-left">CEO, ABC Company</p>
                   </div>
                 </div>
                 <div class="is-flex is-align-items-center">
                   <i class="bi bi-quote" style="font-size: 48px; color: #B0D6F5;"></i>
                 </div>
               </div>
-              <p class="mt-5 has-text-centered">
+              <p class="mt-5 has-text-centered is-size-6-mobile">
                 Collab Connect helped me find the perfect partner for my start-up.
                 The platform was easy to use and the communication with my partner
                 was seamless.
               </p>
             </div>
-            <div class="column is-5-desktop is-5-tablet is-12-mobile card p-4 is-flex is-flex-direction-column">
+            <div class="column is-5-desktop is-5-tablet is-10-mobile card p-4 is-flex is-flex-direction-column is-hidden-mobile">
               <div class="is-flex is-flex-direction-row is-justify-content-space-between">
                 <div class="is-flex has-text-left is-flex-direction-row">
                   <img src="/images/home-testimony-1.png" alt="profile-picture" width="80px" height="80px" style="border-radius: 50%;">

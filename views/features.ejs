@@ -3,18 +3,18 @@
 <!-- THE HEAD TAG PARTIAL -->
 <%- include("partials/head") %>
 
-  <body class="alt-background">
+  <body class="alt-background" style="overflow-x: hidden;">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-      <main class="container my-6">
-        <div class="container">
+      <main class="custom-container">
+        <div class="container my-6">
           <h1 class="title has-text-centered">Pricing</h1>
 
           <h2 class="subtitle has-text-centered">Please choose a plan below</h2>
           <!-- Monthly/Yearly -->
 
-          <div class="columns is-12 is-flex is-align-items-center">
-            <div class="column is-4">
+          <div class="columns is-12 is-flex is-flex-wrap-wrap is-align-items-center">
+            <div class="column is-4 is-12-mobile">
               <div class="pricing-card card p-6">
                 <p class="subtitle mb-4">Basic</p>
                 <div class="is-flex is-flex-direction-row py-2">
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-            <div class="column is-4">
+            <div class="column is-4 is-12-mobile">
               <div class="p-4 has-text-white-bis" style="border-radius: 10px 10px 0px 0px; background: radial-gradient(circle at 80% 90%, rgb(15, 213, 172) 0%, rgb(34, 182, 198) 100.2%);">
                 <p class="is-size-5">Best Seller</p>
               </div>
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <div class="column is-4">
+            <div class="column is-4 is-12-mobile">
               <div class="pricing-card card p-6">
                 <p class="subtitle mb-4">Business</p>
                 <div class="is-flex is-flex-direction-row py-2">
