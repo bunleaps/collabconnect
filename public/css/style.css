@@ -96,9 +96,10 @@
     border-radius: 0 10px 10px 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
     .custom-container {
-      width: 100%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
   }
 
