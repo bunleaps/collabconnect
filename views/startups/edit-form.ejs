@@ -7,66 +7,66 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("../partials/header-auth") %>
-    <main class="container my-6">
-      <h3 class="title is-5 has-text-centered">Edit Startup</h3>
-
-      <form action="/startup/edit" method="post">
-        <label class="label mt-3">Name</label>
-        <input
-          class="input"
-          type="text"
-          name="name"
-          placeholder="name"
-          value="<%= startup.name %>"
-        />
-        <label class="label mt-3">Founder</label>
-        <input
-          class="input"
-          type="text"
-          name="founder"
-          placeholder="founder"
-          value="<%= startup.founder %>"
-        />
-        <label class="label mt-3">Website Link</label>
-        <input
-          class="input"
-          type="text"
-          name="website"
-          placeholder="website"
-          value="<%= startup.website %>"
-        />
-        <label class="label mt-3">Address</label>
-        <input
-          class="input"
-          type="text"
-          name="address"
-          placeholder="address"
-          value="<%= startup.address %>"
-        />
-        <label class="label mt-3">Image Link</label>
-        <input
-          class="input"
-          type="text"
-          name="image"
-          placeholder="image"
-          value="<%= startup.image %>"
-        />
-        <label class="label mt-3">Tags (Separate by comma ",")</label>
-        <input
-          class="input"
-          type="text"
-          name="categories"
-          placeholder="Categories"
-          value="<%= startup.categories.join(', ') %>"
-        />
-        <input
-          class="button is-primary mt-3"
-          type="submit"
-          value="Update Startup"
-        />
-      </form>
+    <main class="special is-absolute alt-background pl-6">
+      <div class="container my-6">
+        <h3 class="title is-5 has-text-centered">Edit Startup</h3>
+  
+        <form action="/startup/edit" method="post">
+          <label class="label mt-3">Name</label>
+          <input
+            class="input"
+            type="text"
+            name="name"
+            placeholder="name"
+            value="<%= startup.name %>"
+          />
+          <label class="label mt-3">Founder</label>
+          <input
+            class="input"
+            type="text"
+            name="founder"
+            placeholder="founder"
+            value="<%= startup.founder %>"
+          />
+          <label class="label mt-3">Website Link</label>
+          <input
+            class="input"
+            type="text"
+            name="website"
+            placeholder="website"
+            value="<%= startup.website %>"
+          />
+          <label class="label mt-3">Address</label>
+          <input
+            class="input"
+            type="text"
+            name="address"
+            placeholder="address"
+            value="<%= startup.address %>"
+          />
+          <label class="label mt-3">Image Link</label>
+          <input
+            class="input"
+            type="text"
+            name="image"
+            placeholder="image"
+            value="<%= startup.image %>"
+          />
+          <label class="label mt-3">Tags (Separate by comma ",")</label>
+          <input
+            class="input"
+            type="text"
+            name="categories"
+            placeholder="Categories"
+            value="<%= startup.categories.join(', ') %>"
+          />
+          <input
+            class="button is-primary mt-3"
+            type="submit"
+            value="Update Startup"
+          />
+        </form>
+      </div>
     </main>
-    <!-- THE HEAD TAG PARTIAL -->
-    <%- include("../partials/footer") %>
   </body>
 </html>

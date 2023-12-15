@@ -5,32 +5,29 @@
   <body class="alt-background">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
-    <main>
+    <main class="custom-container">
       <div class="hero is-fullheight-with-navbar is-flex is-align-items-center">
         <div class="container is-flex is-align-items-center">
-          <div class="columns">
-            <div class="column is-flex is-flex-direction-column is-justify-content-center">
+          <div class="columns is-12 is-vcentered">
+            <div class="column is-12-mobile is-hidden-tablet is-hidden-desktop">
+              <img style="border-radius: 10px" src="/images/jumbo.jpeg" alt="Jumbo" />
+            </div>
+            <div class="column is-12-mobile is-6-tablet is-6-desktop is-flex is-flex-direction-column is-justify-content-center">
               <div>
                 <h1 class="title">COLLABORATIVE<br/>SOLUTIONS FOR START-UP</h1>
                 <p class="subtitle">
-                  Unlock the full potential of your start-up through our
-                  collaborative solutions, where innovative minds converge with
-                  expert insights to navigate challenges and propel your
-                  entrepreneurial journey to unprecedented heights
+                  Unlock the full potential of your start-up through our collaborative solutions, where innovative minds converge with expert insights to navigate challenges and propel your entrepreneurial journey to unprecedented heights
                 </p>
                 <a class="button is-primary" href="auth/login">Get Started <i class="bi bi-arrow-right ml-3"></i></a>
               </div>
             </div>
-            <div class="column">
-              <img
-                style="border-radius: 10px"
-                src="/images/jumbo.jpeg"
-                alt="Jumbo"
-              />
+            <div class="column is-hidden-mobile is-half-tablet is-half-desktop">
+              <img style="border-radius: 10px" src="/images/jumbo.jpeg" alt="Jumbo" />
             </div>
           </div>
         </div>
       </div>
+      
 
       <div class="has-background alt-background is-fullheight">
         <div class="container py-6">
@@ -38,11 +35,16 @@
             <div class="column py-6 my-6">
               <div class="box transparent" style="box-shadow: none !important; padding: 0;">
                 <div class="is-flex is-flex-direction-row py-4">
-                  <div class="is-flex is-flex-direction-column">
+                  <div class="is-flex is-flex-direction-column is-align-items-center">
                     <div class="columns is-12">
-                      <div class="column is-7">
-                        <h1 class="title">Category-Based Searching</h1>
-                        <p class="subtitle">
+                      <div class="column is-hidden-desktop is-hidden-tablet is-12-mobile is-flex is-align-items-center is-justify-content-center ">
+                        <div class="is-flex">
+                          <img src="/images/features-category.png" alt="Searching" class="px-4">
+                        </div>
+                      </div>
+                      <div class="column is-7-desktop is-12-mobile">
+                        <h1 class="title is-size-4-tablet is-size-5-mobile">Category-Based Searching</h1>
+                        <p class="subtitle is-size-6-tablet is-size-6-mobile has-text-justified">
                           With CollabConnect, finding partnership for your start-up
                           business is much easier as start-ups or businesses like yours
                           can customize their profile in CollabConnect including the
@@ -51,14 +53,9 @@
                           category of the business that you would like to find and a list
                           of businesses related to that category will appear in front of
                           your screen for you to choose.
-                          <br><br>
-                          Know a specific business personally that you want to partner up
-                          here? You could also manually search up their business name and
-                          CollabConnect will search the business with the matching name
-                          and/or profile
                         </p>
                       </div>
-                      <div class="column is-5 is-flex is-align-items-center">
+                      <div class="column is-5-tablet is-5-desktop is-flex is-align-items-center is-hidden-mobile">
                         <div class="is-flex">
                           <img src="/images/features-category.png" alt="Searching" class="px-4">
                         </div>
@@ -72,15 +69,15 @@
               <div class="box transparent" style="box-shadow: none !important; padding: 0;">
                 <div class="is-flex is-flex-direction-row is-align-items-center py-4">
                   <div class="is-flex is-flex-direction-column">
-                    <div class="columns is-flex is-justify-content-space-between">
-                      <div class="column is-4 is-flex is-align-items-center">
+                    <div class="columns is-12">
+                      <div class="column is-5-tablet is-5-desktop is-12-mobile is-flex is-align-items-center">
                         <div class="is-flex">
                           <img src="/images/features-partnership.png" alt="Partnership" class="px-4">
                         </div>
                       </div>
-                      <div class="column is-7">
-                        <h1 class="title">Quick and Easy Request for Partnership</h1>
-                        <p class="subtitle">
+                      <div class="column is-7-desktop is-12-mobile">
+                        <h1 class="title is-size-4-tablet is-size-5-mobile">Quick and Easy Request for Partnership</h1>
+                        <p class="subtitle is-size-6-tablet is-size-6-tablet has-text-justified">
                           CollabConnect has revolutionized partnership requests, offering
                           a streamlined and user-friendly process. Users can customize and
                           submit requests within minutes, thanks to the platform's
@@ -91,10 +88,6 @@
                           collaborative planning tools and document sharing, ensuring
                           users focus on building meaningful collaborations without
                           time-consuming hurdles.
-                          <br><br>
-                          In essence, CollabConnect transforms the journey from request
-                          submission to collaboration into a quick and efficient process,
-                          revolutionizing how partnerships are forged and managed.
                         </p>
                       </div>
                     </div>
@@ -106,21 +99,28 @@
               <div class="box transparent" style="box-shadow: none !important; padding: 0;">
                 <div class="is-flex is-flex-direction-row py-4">
                   <div class="is-flex is-flex-direction-column">
-                    <div class="columns">
-                      <div class="column is-7">
-                        <h1 class="title">One-on-one Communication with Start-up</h1>
-                        <p class="subtitle">
-                          Engaging in one-on-one communication with startups on
-                          CollabConnect is exceptionally efficient. The platform's
-                          streamlined interface facilitates direct and instant
-                          communication, allowing users to connect with startup
-                          representatives seamlessly. Real-time messaging features ensure
-                          quick responses, fostering efficient dialogue and eliminating
-                          delays commonly associated with traditional communication
-                          channels.
-                        </p>
+                    <div class="columns is-12">
+                      <div class="column is-12-mobile is-hidden-desktop is-hidden-tablet is-flex is-align-items-center">
+                        <div class="is-flex">
+                          <img src="/images/features-communication.png" alt="Communication" class="px-4">
+                        </div>
                       </div>
-                      <div class="column is-5 is-flex is-align-items-center">
+                      <div class="is-flex is-align-items-center">
+                        <div class="column is-7 is-12-mobile" style="width: 100%;">
+                          <h1 class="title is-size-4-tablet is-size-5-mobile">One-on-one Communication with Start-up</h1>
+                          <p class="subtitle is-size-6-tablet is-size-6-mobile has-text-justified">
+                            Engaging in one-on-one communication with startups on
+                            CollabConnect is exceptionally efficient. The platform's
+                            streamlined interface facilitates direct and instant
+                            communication, allowing users to connect with startup
+                            representatives seamlessly. Real-time messaging features ensure
+                            quick responses, fostering efficient dialogue and eliminating
+                            delays commonly associated with traditional communication
+                            channels.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="column is-5-tablet is-5-desktop is-hidden-mobile is-flex is-align-items-center">
                         <div class="is-flex">
                           <img src="/images/features-communication.png" alt="Communication" class="px-4">
                         </div>
@@ -136,19 +136,21 @@
 
       <div class="has-background alt-background is-fullheight">
         <div class="container py-6">
-          <div class="has-text-centered mb-4 px-6">
-            <h1 class="title ">Featured Partners</h1>
-            <p class="subtitle  p-4">
-              Explore excellence with our standout partners, leaders in
-              innovation and collaboration. Together, we redefine industry
-              standards, driven by shared vision and unwavering commitment. join
-              us in celebrating the power of collaboration for boundless
-              possibilities
-            </p>
+          <div class="columns is-12 has-text-centered">
+            <div class="has-text-centered mb-4">
+              <h1 class="title column is-12 is-size-4-mobile has-text-centered">Featured Partners</h1>
+              <p class="subtitle column is-12-desktop is-12-tablet is-12-mobile is-size-6-mobile has-text-centered">
+                Explore excellence with our standout partners, leaders in
+                innovation and collaboration. Together, we redefine industry
+                standards, driven by shared vision and unwavering commitment. join
+                us in celebrating the power of collaboration for boundless
+                possibilities
+              </p>
+            </div>
           </div>
 
-          <div class="columns mt-2 is-desktop is-flex is-flex-wrap-wrap">
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+          <div class="columns is-12 mt-2 is-desktop is-flex is-flex-wrap-wrap">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -156,7 +158,7 @@
                 <img src="/images/aws.png" alt="AWS" />
               </div>
             </div>
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -164,7 +166,7 @@
                 <img src="/images/nasa.png" alt="NASA" />
               </div>
             </div>
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -172,7 +174,7 @@
                 <img src="/images/ms.png" alt="Microsoft" />
               </div>
             </div>
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -180,7 +182,7 @@
                 <img src="/images/google.png" alt="Google" />
               </div>
             </div>
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -188,7 +190,7 @@
                 <img src="/images/ks.png" alt="Kickstarter" />
               </div>
             </div>
-            <div class="column is-one-third-desktop is-half-tablet is-flex">
+            <div class="column is-4-desktop is-6-tablet is-12-mobile is-flex">
               <div
                 class="box is-flex is-align-items-center is-justify-content-center card-background"
                 style="width: 100%; height: 200px;"
@@ -204,8 +206,8 @@
       <div class="has-background is-fullheight">
         <div class="container py-6">
           <div class="has-text-centered">
-            <h1 class="title ">Featured Stories</h1>
-            <p class="subtitle ">
+            <h1 class="title column is-12 is-size-4-mobile has-text-centered">Featured Stories</h1>
+            <p class="subtitle column is-12-desktop is-12-tablet is-12-mobile is-size-6-mobile has-text-centered">
               Embark on inspiring journeys with our featured stories—testaments to 
               innovation, resilience, and entrepreneurial triumphs. Join us in celebrating 
               these impactful narratives that showcase the boundless possibilities within 
@@ -213,40 +215,61 @@
             </p>
           </div>
           <div class="columns is-12 my-4 py-4">
-            <div class="column is-4">
-              <img src="/images/home-nasa.jpg" alt="NASA Exploration" style="border-radius: 10px"/>
-            </div>
-            <div class="column is-6 is-flex is-align-items-center">
-              <div>
-                <h1 class="title is-4 ">
-                  COLLABORATION WITH<br/>NASA SPACE EXPLORATION
-                </h1>
-                <p class="subtitle ">
-                  The startup, StellarTech Innovations, achieved cosmic success by
-                  collaborating with NASA on a groundbreaking space exploration
-                  mission. Together, they redefined the limits of innovation,
-                  setting a historic milestone in collaborative excellence and
-                  propelling their startup to new heights in the space-age
-                  frontier.
-                </p>
+            <div class="is-flex is-justify-content-center is-align-items-center">
+              <div class="is-flex" style="width: auto;">
+                <div class="column is-6-desktop is-12-tablet is-12-mobile">
+                  <div class="columns is-12 is-flex is-justify-content-left">
+                    <div class="column is-10">
+                      <img src="/images/home-nasa.jpg" alt="NASA Exploration" style="border-radius: 10px"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-6-desktop is-12-tablet is-12-mobile is-flex is-align-items-center">
+                  <div>
+                    <h1 class="title is-4 is-size-4-tablet is-size-4-mobile">
+                      COLLABORATION WITH<br/>NASA SPACE EXPLORATION
+                    </h1>
+                    <p class="subtitle is-size-5-tablet is-size-5-mobile">
+                      The startup, StellarTech Innovations, achieved cosmic success by
+                      collaborating with NASA on a groundbreaking space exploration
+                      mission. Together, they redefined the limits of innovation,
+                      setting a historic milestone in collaborative excellence and
+                      propelling their startup to new heights in the space-age
+                      frontier.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="columns is-12 my-4 py-4 is-flex is-justify-content-right">
-            <div class="column is-6 py-4 is-flex is-align-items-center">
-              <div>
-                <h1 class="title is-4 ">COLLABORATION WITH<br/>MICROSOFT</h1>
-                <p class="subtitle ">
-                  Teaming up with Microsoft, the startup, SmartFlush Innovations,
-                  transformed the mundane toilet into a tech marvel. The result? A
-                  sleek, efficient smart toilet that redefines bathroom
-                  experiences, showcasing the power of innovation and
-                  collaboration in unexpected places.
-                </p>
+          <div class="columns is-12 my-4 py-4 is-flex is-justify-content-center is-align-items-center">
+            <div class="is-flex">
+              <div class="column is-hidden-desktop is-hidden-tablet is-12-mobile">
+                <div class="columns is-12 is-flex is-justify-content-center">
+                  <div class="column is-10">
+                    <img src="/images/home-toilet.jpg" alt="MS Toilet" style="border-radius: 10px"/>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="column is-4">
-              <img src="/images/home-toilet.jpg" alt="MS Toilet" style="border-radius: 10px"/>
+              <div class="column is-6 py-4 is-flex is-align-items-center">
+                <div>
+                  <h1 class="title is-4 is-size-4-tablet is-size-4-mobile">COLLABORATION WITH<br/>MICROSOFT</h1>
+                  <p class="subtitle is-size-5-tablet is-size-5-mobile">
+                    Teaming up with Microsoft, the startup, SmartFlush Innovations,
+                    transformed the mundane toilet into a tech marvel. The result? A
+                    sleek, efficient smart toilet that redefines bathroom
+                    experiences, showcasing the power of innovation and
+                    collaboration in unexpected places.
+                  </p>
+                </div>
+              </div>
+              <div class="column is-6-desktop is-12-tablet is-hidden-mobile">
+                <div class="columns is-12 is-flex is-justify-content-right">
+                  <div class="column is-10">
+                    <img src="/images/home-toilet.jpg" alt="MS Toilet" style="border-radius: 10px"/>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -254,9 +277,9 @@
 
       <div class="container mb-6">
         <h1 class="title">What Our Clients Say?</h1>
-        <div class="columns is-12 mb-6">
-          <div class="column is-flex is-flex-direction-row is-justify-content-space-evenly py-4 mt-4 mb-6">
-            <div class="column is-4 card p-4 is-flex is-flex-direction-column">
+        <div class="mb-6">
+          <div class="columns is-12 is-flex is-flex-direction-row is-justify-content-space-evenly py-4 mt-4 mb-6">
+            <div class="column is-5-desktop is-5-tablet is-12-mobile card p-4 is-flex is-flex-direction-column">
               <div class="is-flex is-flex-direction-row is-justify-content-space-between">
                 <div class="is-flex has-text-left is-flex-direction-row">
                   <img src="/images/home-testimony-1.png" alt="profile-picture" width="80px" height="80px" style="border-radius: 50%;">
@@ -269,13 +292,13 @@
                   <i class="bi bi-quote" style="font-size: 48px; color: #B0D6F5;"></i>
                 </div>
               </div>
-              <p class="mt-5">
+              <p class="mt-5 has-text-centered">
                 Collab Connect helped me find the perfect partner for my start-up.
                 The platform was easy to use and the communication with my partner
                 was seamless.
               </p>
             </div>
-            <div class="column is-4 card p-4 is-flex is-flex-direction-column">
+            <div class="column is-5-desktop is-5-tablet is-12-mobile card p-4 is-flex is-flex-direction-column">
               <div class="is-flex is-flex-direction-row is-justify-content-space-between">
                 <div class="is-flex has-text-left is-flex-direction-row">
                   <img src="/images/home-testimony-1.png" alt="profile-picture" width="80px" height="80px" style="border-radius: 50%;">
@@ -288,7 +311,7 @@
                   <i class="bi bi-quote" style="font-size: 48px; color: #B0D6F5;"></i>
                 </div>
               </div>
-              <p class="mt-5">
+              <p class="mt-5 has-text-left">
                 The category-based searching on Collab Connect made it easy for me
                 to find potential partners that aligned with my goals. The platform
                 is a game changer for start-ups!
@@ -298,10 +321,6 @@
         </div>
       </div>
     </main>
-
-    <script>
-      
-    </script>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>
   </body>

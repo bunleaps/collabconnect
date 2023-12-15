@@ -1,137 +1,58 @@
-<header class="container is-flex is-flex-direction-column pt-2">
-  <div class="is-flex is-justify-content-space-between is-align-items-center">
-    <div class="is-flex is-align-items-center mt-3">
-      <i class="bi bi-plugin mr-2"></i>
-      <h3 class="py-2">Collab <br /><b>Connect</b></h3>
-    </div>
-    <div>
-      <ul class="is-flex is-flex-direction-row is-align-items-center pt-2">
-        <li class="mr-6"><a href="/">Home</a></li>
-        <li class="mr-6"><a href="/features">Pricing</a></li>
-        <li class="mr-6"><a href="/about">About</a></li>
-        <li class="mr-6"><a href="/contact-us">Contact Us</a></li>
-        <!-- <a href="/auth/login" class="button secondary ml-3" style="width: 100px;">Log In</a> -->
-        <!-- <a href="/auth/signup" class="button primary ml-3" style="width: 100px;">Sign Up</a> -->
-        
-        <!-- New Login -->
-        <a href="#" class="button secondary ml-3" id="openLogin" style="width: 100px;">Log In</a>
-        <a href="#" class="button primary ml-3" id="openSignUp" style="width: 100px;">Sign Up</a>
-        
-        <div class="modal" id="authModal">
-          <div class="modal-background"></div>
-          <div class="modal-content" style="overflow-x: hidden;">
-            <div class="box columns is-12" id="loginForm" style="min-height: 80vh;">
-              <div class="column is-6" style="background-color: aqua;">
-                <div class="is-flex is-justify-content-center is-align-items-center">
-                  <h1 class="title has-text-center">Log In</h1>
-                </div>
-                <!-- Login form fields -->
-                <form action="/auth/login" method="post" class="column is-6" style="width: 100%;">
-                  <input
-                    class="input mt-2"
-                    type="text"
-                    style="background-color: transparent; border: none; border-bottom: 1px solid white;"
-                    name="username"
-                    placeholder="Username"
-                  /><br />
-                  <input
-                    class="input mt-2"
-                    type="password"
-                    style="background-color: transparent; border: none; border-bottom: 1px solid white;"
-                    name="password"
-                    placeholder="Password"
-                  /><br />
-                  <input
-                    class="button is-primary mt-2 is-fluid"
-                    type="submit"
-                    value="Log In"
-                  />
-                </form>
-                <p class="has-text-centered">
-                  <a href="#" id="showSignup">Don't have an account? Sign up here.</a>
-                </p>
-              </div>
-              <div class="column is-6 is-flex is-justify-content-right" style="background-color: pink;">
-                <button class="delete is-medium" aria-label="close" id="closeModal1"></button>
-              </div>
-            </div>
-            
-            <div class="box" id="signupForm">
-              <h1 class="title">Sign Up</h1>
-              <!-- Signup form fields -->
-              <form action="/auth/signup" method="post">
-                <input
-                  class="input mt-2"
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                /><br />
-                <input
-                  class="input mt-2"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                /><br />
-                <input
-                class="button is-primary mt-2"
-                  type="submit"
-                  value="Sign Up"
-                />
-              </form>
-              <p class="has-text-centered">
-                <a href="#" id="showLogin">Already have an account? Log in here.</a>
-              </p>
-              
-              <!-- NOT DONE -->
-              <button class="delete is-medium" aria-label="close" id="closeModal2"></button>
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <div class="is-flex is-align-items-center mr-4">
+          <i class="bi bi-plugin mr-2 logo-box"></i>
+          <h3 class="py-2 logo-text">Collab <br /><b>Connect</b></h3>
+        </div>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <div id="navBar" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="/">Home</a>
+          <a class="navbar-item" href="/features">Pricing</a>
+          <a class="navbar-item" href="/about">About Us</a>
+          <a class="navbar-item" href="/contact-us">Contact</a>
+          <a class="navbar-item is-hidden-desktop is-hidden-tablet" href="/auth/login">Log In</a>
+          <a class="navbar-item is-hidden-desktop is-hidden-tablet" href="/auth/signup">Sign Up</a>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a href="/auth/login" class="button secondary ml-3 is-hidden-mobile" style="width: 100px;">Log In</a>
+              <a href="/auth/signup" class="button primary ml-3 is-hidden-mobile" style="width: 100px;">Sign Up</a>   
             </div>
           </div>
         </div>
-      </ul>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <script>
-    $(document).ready(function () {
-      $("#openLogin").click(function () {
-        $("#authModal").addClass("is-active");
-        $('#signupForm').hide();
-        $('#loginForm').show();
-      });
-      
-      $("#openSignUp").click(function () {
-        $("#authModal").addClass("is-active");
-        $('#loginForm').hide();
-        $('#signupForm').show();
-      });
+    $(document).ready(function() {
 
-      $('#closeModal1').click(function() {
-        $('#authModal').removeClass('is-active');
-      });
+      // Check for click events on the navbar burger icon
+      $(".navbar-burger").click(function() {
 
-      $('#closeModal2').click(function() {
-        $('#authModal').removeClass('is-active');
-      });
-      
-      $('.modal-background').click(function() {
-        $('#authModal').removeClass('is-active');
-      });
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          $(".navbar-burger").toggleClass("is-active");
+          $(".navbar-menu").toggleClass("is-active");
 
-      $('#showSignup').click(function() {
-        $('#loginForm').hide();
-        $('#signupForm').show();
-      });
-
-      $('#showLogin').click(function() {
-        $('#signupForm').hide();
-        $('#loginForm').show();
       });
     });
   </script>
 </header>
 
 <style>
-  header > div > div > i {
+  .logo-box {
     font-size: 20px;
     padding: 5px 9px;
     border-radius: 10px;
@@ -139,18 +60,8 @@
     background: #1abc9c;
   }
 
-  header > div > div > h3 {
+  .logo-text {
     line-height: 16px;
-    color: #161616;
-  }
-
-  header > div > div > ul > li {
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  header > div > div > ul > li > a {
-    text-decoration: none;
     color: #161616;
   }
 
@@ -173,5 +84,11 @@
   .secondary:hover {
     background-color: lightgrey;
     border: none;
+  }
+
+  @media screen and (max-width: 1024px){
+    .navbar-brand {
+      margin-left: 1rem;
+    }
   }
 </style>
