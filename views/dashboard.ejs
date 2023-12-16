@@ -8,24 +8,21 @@
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header-auth") %>
 
-    <main
-      class="special is-absolute alt-background"
-      style="padding-left: 6rem !important"
-    >
+    <main class="special is-absolute section-background main-desktop">
       <div class="container">
         <h1 class="mt-4 pt-4">
           Welcome to the Dashboard, <b><%= user.username %></b>!
         </h1>
         <br />
         <h3 class="title is-5">Your Startup Information:</h3>
-        <div class="is-flex mt-5">
-          <div class="mr-5">
+        <div class="columns is-flex is-flex-wrap-wrap mt-5">
+          <div class="column is-2 is-full-tablet-only is-full-mobile mr-5">
             <figure class="image is-128x128 mr-4">
               <img class="is-rounded" src="<%= startup.image ||
               "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
             </figure>
           </div>
-          <div>
+          <div class="column is-full-tablet-only is-full-mobile">
             <ul>
               <li><strong>Name:</strong> <%= startup.name || "NaN" %></li>
               <li><strong>Founder:</strong> <%= startup.founder || "NaN" %></li>
@@ -40,7 +37,8 @@
         </div>
 
         <!-- Link to the edit page -->
-        <a class="mt-5 button" href="/startup/edit">Edit Startup</a>
+        <a class="mt-5 button is-hidden-mobile is-hidden-tablet-only" href="/startup/edit">Edit Startup</a>
+        <a class="button is-hidden-desktop" href="/startup/edit">Edit Startup</a>
 
         <br />
         <br />
@@ -48,31 +46,58 @@
         <h3 class="title is-5">Potential Partners</h3>
         <div class="columns"></div>
         <% similarStartups.forEach(similarStartup => { %>
-        <div class="column">
-          <div class="box is-flex">
-            <figure class="image is-128x128 mr-4">
-              <img class="is-rounded" src="<%= similarStartup.info.image ||
-              "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
-            </figure>
-            <div class="is-flex is-flex-direction-column pt-2">
-              <h3 class="title is-5">
-                <%= similarStartup.info.name || "NaN" %>
-              </h3>
-              <p class="subtitle is-6">
-                <%= similarStartup.info.founder || "NaN" %>
-              </p>
-              <p>
-                <i class="bi bi-link-45deg"></i> <%= similarStartup.info.website
-                || "NaN" %>
-              </p>
-              <p>
-                <strong>Tags:</strong> <%= (similarStartup.info.categories &&
-                Array.isArray(similarStartup.info.categories)) ?
-                similarStartup.info.categories.join(', ') : "NaN" %>
-              </p>
+          <div class="column">
+            <!-- Tablet and Mobile -->
+            <div class="box is-flex is-justify-content-space-between is-hidden-tablet">
+              <div class="is-flex is-flex-direction-column pt-2">
+                <div class="is-flex is-flex-direction-column" style="align-self: start; flex: 1;">
+                  <h3 class="is-size-6" style="font-weight: 600;">
+                    <%= similarStartup.info.name || "NaN" %>
+                  </h3>
+                  <p class="is-size-7">
+                    <%= similarStartup.info.founder || "NaN" %>
+                  </p>
+                </div>
+                <div class="is-flex is-flex-direction-column" style="align-self: end; flex: 1;">
+                  <a class="is-size-7">
+                    <i class="bi bi-link-45deg"></i> <%= similarStartup.info.website || "NaN" %>
+                  </a>
+                  <p class="is-size-7">
+                    <strong>Tags:</strong> <%= (similarStartup.info.categories &&
+                    Array.isArray(similarStartup.info.categories)) ?
+                    similarStartup.info.categories.join(', ') : "NaN" %>
+                  </p>
+                </div>
+              </div>
+              <figure class="image is-128x128 ml-4">
+                <img class="is-rounded" src="<%= similarStartup.info.image ||
+                "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
+              </figure>
+            </div>
+            <!-- Desktop -->
+            <div class="box is-flex is-desktop-only is-hidden-mobile">
+              <figure class="image is-128x128 mr-4">
+                <img class="is-rounded" src="<%= similarStartup.info.image ||
+                "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
+              </figure>
+              <div class="is-flex is-flex-direction-column pt-2">
+                <h3 class="title is-5">
+                  <%= similarStartup.info.name || "NaN" %>
+                </h3>
+                <p class="subtitle is-6">
+                  <%= similarStartup.info.founder || "NaN" %>
+                </p>
+                <a>
+                  <i class="bi bi-link-45deg"></i> <%= similarStartup.info.website || "NaN" %>
+                </a>
+                <p>
+                  <strong>Tags:</strong> <%= (similarStartup.info.categories &&
+                  Array.isArray(similarStartup.info.categories)) ?
+                  similarStartup.info.categories.join(', ') : "NaN" %>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         <% }); %>
       </div>
     </main>

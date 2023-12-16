@@ -23,6 +23,10 @@ router.get("/contact-us", (req, res) => {
   res.render("contact-us");
 });
 
+router.get("/collaboration", (req, res) => {
+  res.render("collaboration");
+});
+
 router.use(auth);
 router.use(async (req, res, next) => {
   req.user = await User.findById(req.session.user.id);

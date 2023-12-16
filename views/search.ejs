@@ -7,10 +7,7 @@
   <body>
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header-auth") %>
-    <main
-      class="special is-absolute alt-background"
-      style="padding-left: 6rem !important"
-    >
+    <main class="special is-absolute section-background main-desktop">
       <div class="container">
         <h1 class="title has-text-centered pt-6">Search Startups</h1>
         <!-- Add a search input form -->
@@ -47,7 +44,35 @@
           startup.info.name.toLowerCase().includes(searchQuery.toLowerCase()) :
           true)) { %>
           <div class="column">
-            <div class="box is-flex">
+            <!-- Tablet and Mobile -->
+            <div class="box is-flex is-justify-content-space-between is-hidden-tablet">
+              <div class="is-flex is-flex-direction-column pt-2">
+                <div class="is-flex is-flex-direction-column" style="align-self: start; flex: 1;">
+                  <h3 class="is-size-6" style="font-weight: 600;"><%= startup.info.name || "NaN" %></h3>
+                  <p class="is-size-7">
+                    <%= startup.info.founder || "NaN" %>
+                  </p>
+                </div>
+                <div class="is-flex is-flex-direction-column" style="align-self: end; flex: 1;">
+                  <a class="is-size-7">
+                    <i class="bi bi-link-45deg"></i> <%= startup.info.website ||
+                    "NaN" %>
+                  </a>
+                  <p class="is-size-7">
+                    <strong>Tags:</strong> <% if (startup.info.categories &&
+                    startup.info.categories.length > 0) { %> <%=
+                    startup.info.categories.join(', ') %> <% } else { %> "NaN" <%
+                    } %>
+                  </p>
+                </div>
+              </div>
+              <figure class="image is-128x128 ml-4">
+                <img class="is-rounded" src="<%= startup.info.image ||
+                "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />
+              </figure>
+            </div>
+            <!-- Desktop -->
+            <div class="box is-flex is-desktop-only is-hidden-mobile">
               <figure class="image is-128x128 mr-4">
                 <img class="is-rounded" src="<%= startup.info.image ||
                 "https://bulma.io/images/placeholders/128x128.png" %>" alt="" />

@@ -1,21 +1,34 @@
 <header>
-  <aside class="sidebar menu collapsed">
-    <div class="is-flex is-flex-direction-column is-justify-content-center px-4">
-      <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+  <nav class="navbar-no-desktop" class="is-hidden-desktop">
+    <div class="is-flex is-justify-content-space-between">
+      <div class="logo-pop">
+        <div class="px-4 is-flex is-align-items-center" style="height: 100%;">
+          <i class="bi bi-list" style="font-size: 36px;"></i>
+        </div>
+      </div>
+      <div class="is-flex is-align-items-center mr-4">
+        <a href="/auth/logout" class="button secondary ml-3" style="width: 100px;">Logout</a> 
+      </div>
+    </div>
+  </nav>
+
+  <!-- Desktop -->
+  <aside class="sidebar menu collapsed is-hidden-tablet-only is-hidden-mobile is-desktop-only">
+    <div class="is-flex is-flex-direction-column is-justify-content-center px-4 is-hidden-tablet-only">
+      <div class="is-flex is-flex-direction-row is-justify-content-space-between" style="height: 80px;">
         <div class="is-flex is-align-items-center my-3 pb-4" style="height: 60px;">
-          <i class="bi bi-plugin mr-2 icon-logo"></i>
+          <i class="bi bi-plugin mr-2 icon-logo-static"></i>
           <h3 class="py-2 text-logo hidden">Collab <br/><b>Connect</b></h3>
         </div>
         <div class="is-flex is-align-items-center is-justify-content-center my-3 pb-4">
           <i class="bi bi-list menu-icon hidden" style="font-size: 32px;"></i>
         </div>
       </div>
-      <div class="space-filler"></div>
       <ul class="menu-list">
-        <li><a href="/dashboard"><i class="bi bi-house mr-2 icon-sidebar"></i> <span class="bye-text hidden">Dashboard</span></a></li>
-        <li><a href="/search"><i class="bi bi-search mr-2 icon-sidebar"></i> <span class="bye-text hidden">Search</span></a></li>
-        <li><a href="#"><i class="bi bi-people-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Collaboration</span></a></li>
-        <li><a href="#"><i class="bi bi-gear-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Settings</span></a></li>
+        <li><a href="/dashboard" class="menu-list-link"><i class="bi bi-house mr-2 icon-sidebar"></i> <span class="bye-text hidden">Dashboard</span></a></li>
+        <li><a href="/search" class="menu-list-link"><i class="bi bi-search mr-2 icon-sidebar"></i> <span class="bye-text hidden">Search</span></a></li>
+        <li><a href="/collaboration" class="menu-list-link"><i class="bi bi-people-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Collaboration</span></a></li>
+        <li><a href="#" class="menu-list-link"><i class="bi bi-gear-fill mr-2 icon-sidebar"></i> <span class="bye-text hidden">Settings</span></a></li>
       </ul>
     </div>
     <div class="logout-btn px-4 pb-4">
@@ -25,67 +38,81 @@
     </div>
   </aside>
 
+  <!-- Tablet & Mobile -->
+  <aside class="sidebar menu collapsed is-hidden-desktop">
+    <div class="is-flex is-flex-direction-column is-justify-content-center px-4">
+      <div class="is-flex is-flex-direction-row is-justify-content-space-between" style="height: 80px;">
+        <div class="is-flex is-align-items-center my-3 pb-4" style="height: 60px;">
+          <i class="bi bi-plugin mr-2 icon-logo hidden"></i>
+          <h3 class="py-2 text-logo hidden">Collab <br/><b>Connect</b></h3>
+        </div>
+        <div class="is-flex is-align-items-center is-justify-content-center my-3 pb-4">
+          <i class="bi bi-list menu-icon hidden" style="font-size: 32px;"></i>
+        </div>
+      </div>
+      <ul class="menu-list">
+        <li><a href="/dashboard" class="menu-list-link"><i class="bi bi-house mr-2 icon-sidebar hidden"></i> <span class="bye-text hidden">Dashboard</span></a></li>
+        <li><a href="/search" class="menu-list-link"><i class="bi bi-search mr-2 icon-sidebar hidden"></i> <span class="bye-text hidden">Search</span></a></li>
+        <li><a href="/collaboration" class="menu-list-link"><i class="bi bi-people-fill mr-2 icon-sidebar hidden"></i> <span class="bye-text hidden">Collaboration</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
   <script>
+    function toggleSidebar() {
+      $(".menu-icon").toggle();
+      if (sideCollapsed) {
+        setTimeout(function () {
+          $(".bye-text").toggle();
+        }, 40);
+      } else {
+        $(".bye-text").toggle();
+      }
+      $(".icon-logo").toggle();
+      $(".text-logo").toggle();
+      $(".sidebar").toggleClass("collapsed");
+      sideCollapsed = !sideCollapsed;
+    }
+
     $(document).ready(function () {
       sideCollapsed = true;
 
       $(".menu-icon").click(
         function () {
-          $(".menu-icon").toggle();
-          $(".bye-text").toggle();
-          $(".text-logo").toggle();
-          $(".space-filler").toggle();
-          $(".sidebar").toggleClass("collapsed");
-          sideCollapsed = false; 
-          setTimeout(() => {
-            sideCollapsed = true; 
-          }, 100);
+          toggleSidebar();
+        }
+      );
+
+      $(".logo-pop").click(
+        function () {
+          toggleSidebar();
         }
       );
 
       $(".special").click(
         function () {
           if (!sideCollapsed) {
-            $(".menu-icon").toggle();
-            $(".bye-text").toggle();
-            $(".text-logo").toggle();
-            $(".space-filler").toggle();
-            $(".sidebar").toggleClass("collapsed");
-            sideCollapsed = false; 
-            setTimeout(() => {
-              sideCollapsed = true; 
-            }, 100);
+            toggleSidebar();
           }
         }
       );
 
-      $(".sidebar").click(
-        function () {
-          if ($(".sidebar").hasClass("collapsed") && sideCollapsed) {
-            $(".menu-icon").toggle();
-            $(".bye-text").toggle();
-            $(".text-logo").toggle();
-            $(".space-filler").toggle();
-            $(".sidebar").removeClass("collapsed");
-            sideCollapsed = true; 
-            setTimeout(() => {
-              sideCollapsed = false; 
-            }, 100);
-          }
-          
-          if (!sideCollapsed) {
-            $(".menu-icon").toggle();
-            $(".bye-text").toggle();
-            $(".text-logo").toggle();
-            $(".space-filler").toggle();
-            $(".sidebar").toggleClass("collapsed");
-            sideCollapsed = false; 
-            setTimeout(() => {
-              sideCollapsed = true; 
-            }, 100);
-          }
-        },
-      );
+      $(".sidebar").click(function (event) {
+        if ($(event.target).hasClass("menu-list-link") && sideCollapsed) {
+          return;
+        }
+
+        toggleSidebar();
+      });
+
+      // $('.sidebar').hover(function() {
+      //   clearTimeout($('.sidebar').t);
+      //   toggleSidebar();
+      // }, function(){
+      //   $('.sidebar').t = setTimeout((function() {
+      //     toggleSidebar();
+      //     }), 50);
+      // });
     });
   </script>
 </header>
@@ -107,7 +134,7 @@
     vertical-align: middle;
   }
 
-  .icon-logo {
+  .icon-logo, .icon-logo-static {
     font-size: 20px;
     padding: 5px 9px;
     border-radius: 10px;
@@ -134,7 +161,30 @@
     width: 76px;
   }
 
-  .space-filler {
-    height: 2px;
+  .logo-box {
+    font-size: 20px;
+    padding: 5px 9px;
+    border-radius: 10px;
+    color: white;
+    background: #1abc9c;
+  }
+
+  .logo-text {
+    line-height: 16px;
+    color: #161616;
+  }
+
+  @media screen and (min-width: 1024px) {   
+    .navbar-no-desktop {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .collapsed {
+      width: 0;
+      display: none;
+    }
+
   }
 </style>

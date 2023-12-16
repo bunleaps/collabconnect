@@ -1,0 +1,520 @@
+<!-- collaboration.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- THE HEAD TAG PARTIAL -->
+<%- include("partials/head") %>
+
+    <body class="fixed-screen">
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header-auth") %>
+
+            <main class="special is-absolute sectioon-background main-desktop">
+                <div class="container special-container">
+                    <h1 class="mt-4 mb-4 pt-4 title is-hidden-tablet-only is-hidden-mobile">
+                        All messages
+                    </h1>
+                    <div class="card mt-3 special-container" style="width: 100%; padding: 0 !important;">
+                        <div class="columns is-12">
+                            <!-- Left -->
+                            <div class="column is-one-quarter-desktop is-full-tablet-only is-full-mobile chat-desktop before-chat special-container section-background">
+                                <div class="border-only">
+                                    <div class="columns">
+                                        <div class="column p-5">
+                                            <div
+                                                class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+                                                <div class="is-flex">
+                                                    <p class="mr-2" style="font-weight: 600;">Messages</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <p class="control has-icons-left">
+                                                    <input class="input" type="search" placeholder="Search">
+                                                    <span class="icon is-small is-left">
+                                                        <i class="bi bi-search"></i>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-only section-background" style="overflow: auto; height: 70vh;" id="cardContainer">
+                                    <!-- Placeholder for chat cards -->
+                                </div>
+                            </div>
+
+                            <!-- Right -->
+                            <div class="column is-relative blank-chat special-hide is-full-tablet-only is-full-mobile chat-desktop after-chat special-container chatbox-background border-only">
+                               <div class="p-6">
+                                <p class="title">Welcome Message</p>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+                var messages = {};
+
+                // Add Chat Cards
+                function appendCard(target, personId, name, company, timeAgo, message, imgLink) {
+                    var newCard = `
+                        <div class="border-bot-only chat-card" data-person-id="${personId}">
+                            <div class="cards p-4">
+                                <div class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+                                    <div class="is-flex">
+                                        <div class="px-1 mr-2 is-flex is-align-items-center">
+                                            <img src="${imgLink}" alt="personProfile" style="border-radius: 50%;" width="40px">
+                                        </div>
+                                        <div class="is-flex is-flex-direction-column">
+                                            <p class="is-size-6">${name}</p>
+                                            <p class="is-size-7">${company}</p>
+                                        </div>
+                                    </div>
+                                    <div class="is-flex">
+                                        <p class="is-size-7 time-placeholder" data-type="${name}">${timeAgo}</p>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="is-size-6 new-message-placeholder" data-type="${name}">${message}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    $(target).append(newCard);
+
+                    $('.chat-card[data-person-id="' + personId + '"]').on('click', function () {
+                        console.log(`Chats for ${name}`);
+
+                        if (window.innerWidth < 1023) {
+                            $(".before-chat").hide();
+                            $(".after-chat").show();
+                        }
+
+                        renderChatCard(`${name}`,`${company}`, `${imgLink}`)
+                        displayMessages(personId);
+                        updateChatProfile(personId, `${imgLink}`,`${name}`,`${company}`);
+
+                        personActive = personId
+                        personActiveName = `${name}`;
+                    });
+                }
+
+                // Change placeholder
+                function updateChatProfile(dataId, imgLink, name, company) {
+                    $(".name-placeholder").text(name);
+                    $('.image-placeholder').attr('src', imgLink);
+                    $(".company-placeholder").text(company);
+                    
+                }
+
+                // Add message to chat container
+                function addMessage(personId, message, isOutgoing) {
+                    if (!messages[personId]) {
+                        messages[personId] = []; 
+                    }
+                    messages[personId].push({ 
+                        message: message, 
+                        isOutgoing: isOutgoing 
+                    });
+                }
+
+                // Display message to the chat container
+                function displayMessages(personId) {
+                    var chatContainer = $('.chat-container');
+                    chatContainer.empty();
+
+                    var personMessages = messages[personId] || [];
+
+                    for (var i = 0; i < personMessages.length; i++) {
+                        var isOutgoing = personMessages[i].isOutgoing;
+                        var messageHtml = '';
+
+                        if (isOutgoing) {
+                            messageHtml += `
+                                <div class="message-sent">
+                                    <div class="is-flex is-flex-direction-row is-justify-content-right">
+                                        <div class="is-flex is-flex-direction-column">
+                                            <div class="outgoing-message">
+                                                <p>${personMessages[i].message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            messageHtml += `
+                                <div class="message-received">
+                                    <div class="is-flex is-flex-direction-row">
+                                        <div class="px-1 mr-2 is-flex is-align-items-start chat-profile" style="min-width: 50px;">
+                                            <img src="${personMessages[i].imagePath}" alt="personProfile" style="border-radius: 50%;" width="40px" class="image-placeholder">
+                                        </div>
+                                        <div class="is-flex is-flex-direction-column">
+                                            <p class="is-size-6 name-placeholder">${personMessages[i].name}</p>
+                                            <div class="incoming-message">
+                                                <p>${personMessages[i].message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+
+                        chatContainer.append(messageHtml);
+                    }
+
+                    chatContainer.scrollTop(chatContainer[0].scrollHeight);
+                }
+                    
+                // Chat container initialize
+                function renderChatCard(name, company, imgSrc) {
+                    $('.blank-chat').empty();
+
+                    var chatCardHtml = `
+                        <div class="border-bot-only chat-background">
+                            <div class="cards p-4">
+                                <div class="is-flex is-justify-content-space-between">
+                                    <div class="is-flex is-align-items-center">
+                                        <div class="is-flex is-align-items-center px-2 is-hidden-desktop" onclick="backFunction()">
+                                            <i class="bi bi-arrow-left-short" style="font-size: 36px;"></i>
+                                        </div>
+                                        <div class="px-1 mr-2 is-flex is-align-items-center">
+                                            <img src="${imgSrc}" alt="personProfile" style="border-radius: 50%;" width="50px" class="image-placeholder">
+                                        </div>
+                                        <div class="is-flex is-flex-direction-column">
+                                            <p class="is-size-6 name-placeholder has-text-white-bis">${name}</p>
+                                            <p class="is-size-7 company-placeholder has-text-white-bis">${company}</p>
+                                        </div>
+                                    </div>
+                                    <div class="is-flex is-align-items-center">
+                                        <button class="button mr-2" style="width: 100px;"><i class="bi bi-telephone mr-2"></i>Call</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Space -->
+                        <div class="chat-space">
+                            <div class="chat-container p-4" style="overflow: auto;">
+                                <!-- Chats spawn here -->
+                            </div>
+                        </div>
+                        <div class="p-2" style="position: absolute; bottom: 0; width: 100%;">
+                            <div class="p-2" style="position: absolute; bottom: 0; width: 100%;">
+                                <div class="is-flex pr-4">
+                                    <input class="input input-special" type="text" placeholder="Send a message" id="newMessageInput" onkeydown="handleKey(event)" style="border-radius: 40px 0 0 40px; border-right: 0; border-color: white;">
+                                    <div class="px-4 py-1 mr-4 is-flex is-justify-content-center is-align-items-center" style="border-radius: 0 40px 40px 0; background-color: white;" onclick="sendMessage()">
+                                        <i class="bi bi-send"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    $('.blank-chat').append(chatCardHtml);
+                }
+
+                // Only for users (outgoing message)
+                function sendMessage(personId) {
+                    var newMessage = $('#newMessageInput').val();
+                    if (newMessage.trim() !== '') {
+                        appendMessage(newMessage);
+                        addMessage(personId, newMessage, true);
+                        $('.new-message-placeholder[data-type=' + personActiveName + ']').text(newMessage);
+                        $('.time-placeholder[data-type=' + personActiveName + ']').text("now");
+                        $('#newMessageInput').val('');
+                    }
+                }
+
+                // Add outgoing message to the chat container
+                function appendMessage(message) {
+                    var chatContainer = $('.chat-container');
+                    var messageHtml = `
+                        <div class="message-sent">
+                            <div class="is-flex is-flex-direction-row is-justify-content-right">
+                                <div class="is-flex is-flex-direction-column">
+                                    <div class="outgoing-message">
+                                        <p>${message}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    chatContainer.append(messageHtml);
+                    chatContainer.scrollTop(chatContainer[0].scrollHeight);
+                }
+
+                // Enter to send
+                function handleKey(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); 
+                        sendMessage(personActive);
+                    }
+                }
+                
+                function backFunction() {
+                    $(".before-chat").show();
+                    $(".after-chat").hide();
+                }
+
+                function handleChatVisibility() {
+                    const screenWidth = window.innerWidth;
+
+                    if (screenWidth < 1023) {
+                        $(".before-chat").show();
+                        $(".after-chat").hide();
+                    } else {
+                        $(".before-chat").show();
+                        $(".after-chat").show();
+                    }
+                }
+                
+                $(document).ready(function () {
+                    var isKeyboardOpen = false;
+                    var targetElement = '#cardContainer';
+                    handleChatVisibility();
+
+                    var initialHeight = $(window).height();
+
+                    $(window).resize(function () {
+                        var currentHeight = $(window).height();
+
+                        if (currentHeight < initialHeight) {
+                            isKeyboardOpen = true;
+                        } else {
+                            isKeyboardOpen = false;
+                        }
+
+                        if (isKeyboardOpen) {
+                            $(".chat-container").css("max-height", "60vh");
+                        } else {
+                            $(".chat-container").css("max-height", "70vh");
+                        }
+
+                        initialHeight = currentHeight;
+                    });
+
+
+                    // Bunch of Cards appending
+                    appendCard(
+                        targetElement, 
+                        'person1',
+                        'Admin', 
+                        'BAD Company', 
+                        '5min ago', 
+                        'Absolutely! We\'ve recently completed Project A, which received positive feedback. As for upcoming events, we\'ll be hosting a webinar next month. Stay tuned for more details!', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+
+                    appendCard(
+                        targetElement, 
+                        'person2', 
+                        'Jeremy', 
+                        'Orange Co.', 
+                        '30min ago', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+
+                    appendCard(
+                        targetElement, 
+                        'person3', 
+                        'Alice', 
+                        'Green Inc.', 
+                        '1hour ago', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+
+                    appendCard(
+                        targetElement, 
+                        'person4', 
+                        'Bob', 
+                        'Blue Corp.', 
+                        '13hours ago', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+
+                    appendCard(
+                        targetElement, 
+                        'person5', 
+                        'Eva', 
+                        'Purple Ltd.', 
+                        '', 
+                        '<br/>', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+                    
+                    appendCard(
+                        targetElement, 
+                        'person6', 
+                        'John', 
+                        'Tech Co.', 
+                        '', 
+                        '<br/>', 
+                        'https://pics.craiyon.com/2023-11-19/8UaRdbdDS-muSBR_W1VOIw.webp'
+                        );
+                
+                    // Bunch of Chats appending
+                    // Chats (person 1)
+                    addMessage(
+                        'person1', 
+                        'Hello! I\'m interested in learning more about your company. Can you provide some information?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person1', 
+                        'Welcome! We\'re a leading company in XYZ industry. What specific information are you looking for?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person1', 
+                        'We specialize in innovative solutions and have a dedicated team. Feel free to ask about our products, services, or anything specific!', 
+                        true
+                        );
+
+                    addMessage(
+                        'person1', 
+                        'Is there anything specific you\'d like to know?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person1', 
+                        'That sounds impressive! Can you tell me more about your recent projects or any upcoming events?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person1', 
+                        'Absolutely! We\'ve recently completed Project A, which received positive feedback. As for upcoming events, we\'ll be hosting a webinar next month. Stay tuned for more details!', 
+                        true
+                        );
+                        
+                    // Chats (person 2)
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person2', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    // Chats (person 3)
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person3', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+                    // Chats (person 4)
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        false
+                        );
+
+                    addMessage(
+                        'person4', 
+                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, aperiam in necessitatibus esse assumenda ipsum! Earum minus harum officia alias?', 
+                        true
+                        );
+                })
+
+            </script>
+    </body>
+
+</html>
