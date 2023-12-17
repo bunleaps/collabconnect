@@ -76,6 +76,7 @@
 
     $(document).ready(function () {
       sideCollapsed = true;
+      delayMax = 0;
 
       $(".menu-icon").click(
         function () {
@@ -96,12 +97,17 @@
           }
         }
       );
-
+      
+      $(".sidebar > div > ul > li").click(function (event) {
+        delayMax = 10000;
+      });
+      
       $(".sidebar").click(function (event) {
         setTimeout(function () {
           toggleSidebar()
-        }, 100);
+        }, delayMax);
       });
+
     });
   </script>
 </header>
