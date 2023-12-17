@@ -8,7 +8,7 @@
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header-auth") %>
 
-            <main class="special is-absolute sectioon-background main-desktop">
+            <main class="special is-absolute app-background main-desktop">
                 <div class="container special-container">
                     <h1 class="mt-4 mb-4 pt-4 title is-hidden-tablet-only is-hidden-mobile">
                         All messages
@@ -16,9 +16,9 @@
                     <div class="card mt-3 special-container" style="width: 100%; padding: 0 !important;">
                         <div class="columns is-12">
                             <!-- Left -->
-                            <div class="column is-one-quarter-desktop is-full-tablet-only is-full-mobile chat-desktop before-chat special-container section-background">
-                                <div class="border-only">
-                                    <div class="columns">
+                            <div class="column is-one-quarter-desktop is-full-tablet-only is-full-mobile chat-desktop before-chat special-container section-background before-chat-radius-top-left border-only" style="height: 85vh;">
+                                <div class="">
+                                    <div class="columns" style="height: 130px;">
                                         <div class="column p-5">
                                             <div
                                                 class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
@@ -38,17 +38,17 @@
                                     </div>
                                 </div>
 
-                                <div class="border-only section-background" style="overflow: auto; height: 70vh;" id="cardContainer">
+                                <div class="section-background before-chat-radius-bot-left border-top-only" style="overflow: auto; height: calc(85vh - 115px);" id="cardContainer">
                                     <!-- Placeholder for chat cards -->
                                 </div>
                             </div>
 
                             <!-- Right -->
                             <div class="column is-relative blank-chat special-hide is-full-tablet-only is-full-mobile chat-desktop after-chat special-container chatbox-background border-only">
-                               <div class="p-6">
-                                <p class="title">Welcome Message</p>
-                               </div>
-                            </div>
+                                <div class="p-6">
+                                 <p class="title">Welcome Message</p>
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -289,9 +289,9 @@
                         }
 
                         if (isKeyboardOpen) {
-                            $(".chat-container").css("max-height", "60vh");
+                            $(".chat-container").css("max-height", "50vh");
                         } else {
-                            $(".chat-container").css("max-height", "70vh");
+                            $(".chat-container").css("max-height", "75vh");
                         }
 
                         initialHeight = currentHeight;

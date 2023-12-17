@@ -7,22 +7,24 @@
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/header") %>
       <main class="alt-background">
-        <div class="custom-container section-background py-6">
-          <div class="container pb-6">
-            <div class="hero pb-6">
-              <div class="py-6 my-6 is-flex is-flex-direction-column has-text-left">
-                <h1 class="title py-2 mt-6 is-size-5-mobile">About Us</h1>
-                <p class="subtitle is-gapless is-size-6-mobile">
-                  CollabConnect stands at the forefront of innovation, redefining the
-                  landscape of startup collaboration with its cutting-edge platform
-                  designed to streamline and expedite partnership processes. As a
-                  dedicated startup partnership website, CollabConnect is on a mission
-                  to empower emerging businesses by facilitating swift and seamless
-                  connections between like-minded enterprises. With an unwavering
-                  commitment to simplifying the collaboration journey, CollabConnect
-                  transforms the traditionally intricate process of forming partnerships
-                  into an efficient and user-friendly experience.
-                </p>
+        <div class="custom-container section-background">
+          <div class="hero is-fullheight-with-navbar is-flex is-align-items-center">
+            <div class="container is-flex is-align-items-center is-justify-content-center">
+              <div>
+                <div class="pb-6 mb-6 is-flex is-flex-direction-column has-text-left">
+                  <h1 class="title py-2 mt-6 is-size-5-mobile">About Us</h1>
+                  <p class="subtitle is-gapless is-size-6-mobile">
+                    CollabConnect stands at the forefront of innovation, redefining the
+                    landscape of startup collaboration with its cutting-edge platform
+                    designed to streamline and expedite partnership processes. As a
+                    dedicated startup partnership website, CollabConnect is on a mission
+                    to empower emerging businesses by facilitating swift and seamless
+                    connections between like-minded enterprises. With an unwavering
+                    commitment to simplifying the collaboration journey, CollabConnect
+                    transforms the traditionally intricate process of forming partnerships
+                    into an efficient and user-friendly experience.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -30,7 +32,7 @@
 
         <div class="custom-container alt-background">
           <div class="alt-background">
-            <div class="container py-6 my-6">
+            <div class="container py-6 my-6" data-aos="fade-right" data-aos-duration="2000">
               <div class="container py-6 my-6 is-flex is-flex-wrap-wrap is-flex-direction-row columns is-12 is-justify-content-space-between is-align-items-center">
                 <div class="column is-full-mobile is-hidden-desktop is-hidden-tablet">
                   <img src="/images/about-partnership.jpg" alt="Partnership" width="450px" height="250px" style="border-radius: 10px; box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);">
@@ -53,7 +55,7 @@
         </div>
 
         <div class="custom-container section-background">
-          <div class="has-text-centered py-6 mt-6">
+          <div class="has-text-centered py-6 mt-6" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="title">Team</h1>
             <p class="subtitle">
               Meet the people behind our magical product
@@ -76,6 +78,10 @@
           </div>
         </div>
       </main>
+
+      <script>
+        AOS.init();
+      </script>
       <!-- THE HEAD TAG PARTIAL -->
       <%- include("partials/footer") %>
   </body>

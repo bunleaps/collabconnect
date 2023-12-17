@@ -63,7 +63,7 @@
 
         <div class="custom-background section-background">
           <div class="section-background">
-            <div class="container is-flex is-justify-content-center mt-6 py-6">
+            <div class="container is-flex is-justify-content-center mt-6 py-6" data-aos="fade-right" data-aos-duration="2000">
               <table class="table" style="background-color: transparent;">
                 <thead>
                   <tr>
@@ -174,6 +174,8 @@
       </main>
 
       <script>
+        AOS.init();
+
         $(document).ready(function () {
           $('.accordion-button').click(function () {
             $(this).siblings('.accordion-content').slideToggle();

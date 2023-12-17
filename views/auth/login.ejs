@@ -3,85 +3,86 @@
   <!-- THE HEAD TAG PARTIAL -->
   <%- include("../partials/head") %>
 
-  <body class="special alt-background" style="overflow: hidden;">
+  <body class="special alt-background" style="overflow-y: hidden;">
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("../partials/header") %>
-    <main class="container my-6 is-flex is-align-items-center is-fullheight-with-navbar" style="width: 100%;">
-      <div class="is-flex is-justify-content-center is-align-items-center mt-6 pt-4" style="width: 100%;">
-        <div class="columns is-flex is-12" style="width: 70%; background-color: #F6F6F6; border-radius: 10px;">
-          
-          <div class="login-page column is-6 is-flex is-flex-direction-column is-align-items-center is-justify-content-left py-6 px-4">
-            <h1 class="title py-2">Log In</h1>
-            <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="width: 100%;">
-              <form action="/auth/login" method="post" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center" style="width: 100%;">
-                <input
-                  class="input mt-2"
-                  style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                /><br />
-                <input
-                  class="input mt-2"
-                  style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                /><br />
-                <input
-                  class="button is-primary my-3 px-6"
-                  style="width: 80%;"
-                  type="submit"
-                  value="Log In"
-                />
-              </form>
-              <a class="is-size-7 mt-4 is-hidden-desktop is-hidden-tablet" style="color: black;" href="#">New to Collab Connect? <span style="color: blue;">Signup here</span></a>
+    <main class="container" style="width: 100%;">
+      <div class="hero is-fullheight-with-navbar is-flex is-align-items-center is-justify-content-center">
+        <div class="is-flex is-justify-content-center is-align-items-center" style="width: 100%;">
+          <div class="columns is-flex is-12" style="width: 70%; background-color: #F6F6F6; border-radius: 10px;">
+            <div class="login-page column is-6 is-flex is-flex-direction-column is-align-items-center is-justify-content-left py-6 px-4">
+              <h1 class="title py-2">Log In</h1>
+              <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="width: 100%;">
+                <form action="/auth/login" method="post" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center" style="width: 100%;">
+                  <input
+                    class="input mt-2"
+                    style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                  /><br />
+                  <input
+                    class="input mt-2"
+                    style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                  /><br />
+                  <input
+                    class="button is-primary my-3 px-6"
+                    style="width: 80%;"
+                    type="submit"
+                    value="Log In"
+                  />
+                </form>
+                <a class="is-size-7 mt-4 is-hidden-desktop is-hidden-tablet" style="color: black;" href="#">New to Collab Connect? <span style="color: blue;">Signup here</span></a>
+              </div>
             </div>
-          </div>
-          
-          <div class="column is-6 is-flex is-flex-direction-column is-justify-content-center paint-background right-rounded is-hidden-mobile" style="padding: 0;">
-            <div class="login-side is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-              <p class="has-text-white-bis is-size-6">Nice to see you again</p>
-              <p class="has-text-white-bis is-size-4" style="font-weight: 600;">WELCOME BACK</p>
-              <div style="min-height: 50px;"></div>
-              <a class="has-text-white-bis is-size-6 mb-4" href="#">Don't have an account?</a>
-              <a href="#" id="sign-up-button" class="button secondary" style="width: 100px; border: 1px solid white; color: white;">Sign Up</a>   
+            
+            <div class="column is-6 is-flex is-flex-direction-column is-justify-content-center paint-background right-rounded is-hidden-mobile" style="padding: 0;">
+              <div class="login-side is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+                <p class="has-text-white-bis is-size-6">Nice to see you again</p>
+                <p class="has-text-white-bis is-size-4" style="font-weight: 600;">WELCOME BACK</p>
+                <div style="min-height: 50px;"></div>
+                <a class="has-text-white-bis is-size-6 mb-4" href="#">Don't have an account?</a>
+                <a href="#" id="sign-up-button" class="button secondary" style="width: 100px; border: 1px solid white; color: white;">Sign Up</a>   
+              </div>
+              <div class="signup-side is-flex is-flex-direction-column is-justify-content-center is-align-items-center hide">
+                <p class="has-text-white-bis is-size-6">Welcome to</p>
+                <p class="has-text-white-bis is-size-4" style="font-weight: 600;">COLLAB CONNECT</p>
+                <div style="min-height: 50px;"></div>
+                <a class="has-text-white-bis is-size-6 mb-4" href="#">Already have an account?</a>
+                <a href="#" id="sign-in-button" class="button secondary" style="width: 100px; border: 1px solid white; color: white;">Log in</a>   
+              </div>
             </div>
-            <div class="signup-side is-flex is-flex-direction-column is-justify-content-center is-align-items-center hide">
-              <p class="has-text-white-bis is-size-6">Welcome to</p>
-              <p class="has-text-white-bis is-size-4" style="font-weight: 600;">COLLAB CONNECT</p>
-              <div style="min-height: 50px;"></div>
-              <a class="has-text-white-bis is-size-6 mb-4" href="#">Already have an account?</a>
-              <a href="#" id="sign-in-button" class="button secondary" style="width: 100px; border: 1px solid white; color: white;">Log in</a>   
-            </div>
-          </div>
-          
-          <div class="signup-page column is-6 is-flex is-flex-direction-column is-align-items-center is-justify-content-left py-6 px-4 hide">
-            <h1 class="title py-2">Sign Up</h1>
-            <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="width: 100%;">             
-              <form action="/auth/signup" method="post" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center" style="width: 100%;">
-                <input
-                  class="input mt-2"
-                  style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                /><br />
-                <input
-                  class="input mt-2"
-                  style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                /><br />
-                <input
-                  class="button is-primary mt-2"
-                  style="width: 80%;"
-                  type="submit"
-                  value="Sign up"
-                />
-                <a class="is-size-7 mt-4 is-hidden-desktop is-hidden-tablet" style="color: black;" href="#">Already have an account? <span style="color: blue;">Login here</span></a>
-              </form>
+            
+            <div class="signup-page column is-6 is-flex is-flex-direction-column is-align-items-center is-justify-content-left py-6 px-4 hide">
+              <h1 class="title py-2">Sign Up</h1>
+              <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center" style="width: 100%;">             
+                <form action="/auth/signup" method="post" class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center" style="width: 100%;">
+                  <input
+                    class="input mt-2"
+                    style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                  /><br />
+                  <input
+                    class="input mt-2"
+                    style="width: 80%; background-color: transparent; border: none; border-bottom: 1px solid black; box-shadow: none !important; border-radius: 0;"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                  /><br />
+                  <input
+                    class="button is-primary mt-2"
+                    style="width: 80%;"
+                    type="submit"
+                    value="Sign up"
+                  />
+                  <a class="is-size-7 mt-4 is-hidden-desktop is-hidden-tablet" style="color: black;" href="#">Already have an account? <span style="color: blue;">Login here</span></a>
+                </form>
+              </div>
             </div>
           </div>
         </div>
