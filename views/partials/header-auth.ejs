@@ -58,16 +58,18 @@
 
   <script>
     function toggleSidebar() {
-      $(".menu-icon").toggle();
       if (sideCollapsed) {
         setTimeout(function () {
+          $(".menu-icon").toggle();
           $(".bye-text").toggle();
+          $(".text-logo").toggle();
         }, 40);
       } else {
+        $(".menu-icon").toggle();
         $(".bye-text").toggle();
+        $(".text-logo").toggle();
       }
       $(".icon-logo").toggle();
-      $(".text-logo").toggle();
       $(".sidebar").toggleClass("collapsed");
       sideCollapsed = !sideCollapsed;
     }
@@ -96,21 +98,10 @@
       );
 
       $(".sidebar").click(function (event) {
-        if ($(event.target).hasClass("menu-list-link") && sideCollapsed) {
-          return;
-        }
-
-        toggleSidebar();
+        setTimeout(function () {
+          toggleSidebar()
+        }, 100);
       });
-
-      // $('.sidebar').hover(function() {
-      //   clearTimeout($('.sidebar').t);
-      //   toggleSidebar();
-      // }, function(){
-      //   $('.sidebar').t = setTimeout((function() {
-      //     toggleSidebar();
-      //     }), 50);
-      // });
     });
   </script>
 </header>

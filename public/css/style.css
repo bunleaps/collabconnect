@@ -139,7 +139,7 @@
 }
 
 .chat-background {
-    background-color: #327762;
+    background-color: #ebf8ff;
 }
 
 .chatbox-background {
@@ -147,7 +147,7 @@
 }
 
 .incoming-message {
-    background-color: #b6b6b6;
+    background-color: #e4e4e4;
     padding: 10px;
     border-radius: 0 8px 8px 8px;
     margin-bottom: 10px;
@@ -155,8 +155,8 @@
 }
 
 .outgoing-message {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #006AFF;
+    color: #F1F1F1;
     padding: 10px;
     border-radius: 8px 0 8px 8px;
     margin-bottom: 10px;
