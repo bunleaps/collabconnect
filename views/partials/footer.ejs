@@ -1,30 +1,24 @@
 <footer>
   <div class="custom-container">
     <div class="container py-6 is-hidden-mobile">
-      <div class="columns is-12 is-flex is-flex-wrap-wrap is-justify-content-space-between">
-        <div class="newsletter pt-4 column is-12-mobile" style="color: black;">
+      <div class="columns is-12 is-flex is-flex-wrap-wrap is-justify-content-center">
+        <div class="pt-4 column is-10-desktop is-9-tablet is-10-mobile" style="color: black;">
           <label for="email">Subscribe to Newsletter</label><br />
           <div class="is-flex mt-4">
-            <input class="input pr-6" type="email" placeholder="Your email address" style="width: auto;"/>
-            <button class="ml-3 button is-primary subscribe">Subscribe</button>
+            <form id="subscriptionForm" class="is-flex ">
+              <input class="input pr-6" type="email" id="emailInput" placeholder="Your email address" />
+              <button class="ml-3 button is-primary subscribe" type="button" id="subscribeButton" onclick="subscribe()">Subscribe</button>
+          </form>
           </div>
         </div>
     
-        <div class="footer-con column is-4-tablet is-12-mobile">
+        <div class="footer-con column is-2-desktop is-3-tablet-only is-flex is-justify-content-right is-flex-direction-column">
           <p><b>USEFUL LINKS</b></p>
           <div class="columns">
             <div class="column">
               <a href="/features">PRICING</a><br />
               <a href="/about">ABOUT</a><br />
               <a href="/contact-us">CONTACT US</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">TERMS & SERVICES</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">LEGAL</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">SITEMAP</a><br />
-            </div>
-            <div class="column">
-              <a href="" class="is-hidden-mobile">TERMS & SERVICES</a><br />
-              <a href="" class="is-hidden-mobile">LEGAL</a><br />
-              <a href="" class="is-hidden-mobile">SITEMAP</a><br />
             </div>
           </div>
         </div>
@@ -32,12 +26,14 @@
     </div>
 
     <div class="container is-hidden-desktop is-hidden-tablet">
-      <div class="columns is-12 is-flex is-flex-wrap-wrap is-justify-content-space-between">
+      <div class="columns is-12 is-flex is-flex-wrap-wrap is-justify-content-center">
         <div class="newsletter pt-4 column is-12-mobile " style="color: black;">
           <label for="email">Subscribe to Newsletter</label><br />
           <div class="is-flex mt-4">
-            <input class="input pr-6" type="email" placeholder="Your email address"/>
-            <button class="ml-3 button is-primary subscribe">Subscribe</button>
+            <form id="subscriptionForm" class="is-flex ">
+              <input class="input pr-6" type="email" id="emailInput" placeholder="Your email address" />
+              <button class="ml-3 button is-primary subscribe" type="button" id="subscribeButton" onclick="subscribe()">Subscribe</button>
+          </form>
           </div>
         </div>
     
@@ -48,14 +44,6 @@
               <a href="/features">PRICING</a><br />
               <a href="/about">ABOUT</a><br />
               <a href="/contact-us">CONTACT US</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">TERMS & SERVICES</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">LEGAL</a><br />
-              <a href="" class="is-hidden-desktop is-hidden-tablet">SITEMAP</a><br />
-            </div>
-            <div class="column is-hidden-mobile">
-              <a href="" class="is-hidden-mobile">TERMS & SERVICES</a>
-              <a href="" class="is-hidden-mobile">LEGAL</a>
-              <a href="" class="is-hidden-mobile">SITEMAP</a>
             </div>
           </div>
         </div>
@@ -67,6 +55,34 @@
     <p class="is-size-6 is-size-7-mobile">&copy; 2023 Copyright: Collab Connect - BAD Company</p>
   </div>
 </footer>
+
+<script>
+  function isValidEmail(email) {
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+
+  function subscribe() {
+    var emailInput = document.getElementById('emailInput');
+    var email = emailInput.value.trim();
+
+    if (email === '') {
+        alert('Please enter your email address');
+        emailInput.focus();
+        return;
+    }
+
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address');
+        emailInput.focus();
+        return;
+    }
+
+    $("#subscribeButton").html('Subscribed &#10004;');
+    $("#subscribeButton").removeClass('is-primary').addClass('is-success');
+    $("#emailInput").prop('disabled', true);
+  }
+</script>
 
 <style>
   footer {
