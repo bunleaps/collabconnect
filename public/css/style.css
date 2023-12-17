@@ -179,8 +179,6 @@
     line-height: 1.5;
 }
 
-
-
 .main-desktop {
     padding-left: 6rem !important;
 }
@@ -199,13 +197,12 @@
     background-color: beige;
 }
 
-.after-chat-radius-top-right {
+.before-chat-radius-top-right {
     border-radius: 0 8px 0 0;
 }
 
 .before-chat-radius-right {
     border-radius: 0 10px 10px 0;
-    background-color: beige;
 }
 
 .special-desktop {
@@ -254,6 +251,10 @@
 
     .chat-input {
         padding-right: 2rem !important;
+    }
+
+    .paddington {
+        padding-top: 0.5rem !important;
     }
 }
 

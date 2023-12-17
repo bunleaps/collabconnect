@@ -23,7 +23,7 @@
                                             <div
                                                 class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
                                                 <div class="is-flex">
-                                                    <p class="mr-2" style="font-weight: 600;">Messages</p>
+                                                    <p class="mr-2 paddington" style="font-weight: 600;">Messages</p>
                                                 </div>
                                             </div>
                                             <div class="mt-4">
@@ -44,7 +44,7 @@
                             </div>
 
                             <!-- Right -->
-                            <div class="column is-relative blank-chat special-hide is-full-tablet-only is-full-mobile chat-desktop after-chat special-container chatbox-background border-only">
+                            <div class="column is-relative blank-chat special-hide is-full-tablet-only is-full-mobile chat-desktop after-chat special-container chatbox-background border-only before-chat-radius-right">
                                 <div class="p-6">
                                  <p class="title">Welcome Message</p>
                                 </div>
@@ -173,8 +173,8 @@
                     $('.blank-chat').empty();
 
                     var chatCardHtml = `
-                        <div class="border-bot-only chat-background">
-                            <div class="cards py-5 special-desktop">
+                        <div class="border-bot-only chat-background before-chat-radius-top-right">
+                            <div class="cards py-5 special-desktop before-chat-radius-top-right">
                                 <div class="is-flex is-justify-content-space-between is-align-items-center">
                                     <div class="is-flex is-align-items-center is-justify-content-center">
                                         <div class="is-flex is-align-items-center px-2 is-hidden-desktop" onclick="backFunction()">
