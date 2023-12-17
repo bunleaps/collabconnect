@@ -28,7 +28,7 @@
                                             </div>
                                             <div class="mt-4">
                                                 <p class="control has-icons-left">
-                                                    <input class="input" type="search" placeholder="Search">
+                                                    <input class="input" type="search" placeholder="Search" id="searchInput">
                                                     <span class="icon is-small is-left">
                                                         <i class="bi bi-search"></i>
                                                     </span>
@@ -68,7 +68,7 @@
                                             <img src="${imgLink}" alt="personProfile" style="border-radius: 50%;" width="40px">
                                         </div>
                                         <div class="is-flex is-flex-direction-column">
-                                            <p class="is-size-6">${name}</p>
+                                            <p class="is-size-6 name-card">${name}</p>
                                             <p class="is-size-7">${company}</p>
                                         </div>
                                     </div>
@@ -174,9 +174,9 @@
 
                     var chatCardHtml = `
                         <div class="border-bot-only chat-background">
-                            <div class="cards p-4">
-                                <div class="is-flex is-justify-content-space-between">
-                                    <div class="is-flex is-align-items-center">
+                            <div class="cards py-5 special-desktop">
+                                <div class="is-flex is-justify-content-space-between is-align-items-center">
+                                    <div class="is-flex is-align-items-center is-justify-content-center">
                                         <div class="is-flex is-align-items-center px-2 is-hidden-desktop" onclick="backFunction()">
                                             <i class="bi bi-arrow-left-short" style="font-size: 36px;"></i>
                                         </div>
@@ -271,11 +271,24 @@
                         $(".after-chat").show();
                     }
                 }
+
+                function performSearch() {
+                    const searchTerm = $('#searchInput').val().toLowerCase();
+
+                    $('.chat-card').each(function() {
+                        const cardName = $(this).find('.name-card').text().toLowerCase();
+                        const isMatch = cardName.includes(searchTerm);
+
+                        $(this).toggle(isMatch);
+                    });
+                }
                 
                 $(document).ready(function () {
                     var isKeyboardOpen = false;
                     var targetElement = '#cardContainer';
                     handleChatVisibility();
+
+                    $('#searchInput').on('input', performSearch);
 
                     var initialHeight = $(window).height();
 
@@ -291,7 +304,7 @@
                         if (isKeyboardOpen) {
                             $(".chat-container").css("max-height", "50vh");
                         } else {
-                            $(".chat-container").css("max-height", "75vh");
+                            $(".chat-container").css("max-height", "73vh");
                         }
 
                         initialHeight = currentHeight;
