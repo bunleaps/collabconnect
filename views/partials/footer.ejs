@@ -57,31 +57,46 @@
 </footer>
 
 <script>
+  var subscribed = false;
+
   function isValidEmail(email) {
-      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
   function subscribe() {
     var emailInput = document.getElementById('emailInput');
     var email = emailInput.value.trim();
 
-    if (email === '') {
-        alert('Please enter your email address');
-        emailInput.focus();
-        return;
-    }
+    
+    if (subscribed == false) {
+      if (email === '') {
+          alert('Please enter your email address');
+          emailInput.focus();
+          return;
+      }
+  
+      if (!isValidEmail(email)) {
+          alert('Please enter a valid email address');
+          emailInput.focus();
+          return;
+      }
 
-    if (!isValidEmail(email)) {
-        alert('Please enter a valid email address');
-        emailInput.focus();
-        return;
+      $("#subscribeButton").html('Subscribed &#10004;');
+      $("#subscribeButton").removeClass('is-primary').addClass('is-success');
+      $("#emailInput").prop('disabled', true);
+      subscribed = true;
+    } else if (subscribed == true) {    
+      $("#subscribeButton").html('Subscribe');
+      $("#subscribeButton").removeClass('is-success').addClass('is-primary');
+      $("#subscribeButton").prop('disabled', false);
+      $("#emailInput").prop('disabled', false);
+      $('#emailInput').val('');
+      subscribed = false;
     }
-
-    $("#subscribeButton").html('Subscribed &#10004;');
-    $("#subscribeButton").removeClass('is-primary').addClass('is-success');
-    $("#emailInput").prop('disabled', true);
   }
+
+
 </script>
 
 <style>
